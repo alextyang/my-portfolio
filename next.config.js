@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: "/my-portfolio",
+    // basePath: "/my-portfolio", // <=== github pages domain requirement
     output: "export",  // <=== enables static exports
     reactStrictMode: true,
     images: {
