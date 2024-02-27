@@ -1,10 +1,7 @@
 
-type Project = {
+export type Project = {
     path: string,
-    coverImage: {
-        src: string,
-        alt: string
-    },
+    coverImage: string,
     title: string,
     subtitle: string,
     tags: string[],
