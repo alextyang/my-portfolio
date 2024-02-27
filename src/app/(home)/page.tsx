@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start w-full min-h-screen px-[6vw] py-10 text-left font-nhgd">
       <div className="flex flex-col items-center justify-start max-w-5xl min-h-screen gap-10">
-        <p className="w-full text-5xl leading-tight tracking-wider font-base">Hi! My name is Alex and I'm a Full-stack Developer and Creative Technologist located in New York City.</p>
+        <p className="w-full text-5xl leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Full-stack developer and Creative Technologist located in New York City.</p>
 
         <div className="flex flex-col w-full h-min mt-auto mb-12 justify-between sm:flex-row sm:flex-wrap ">
           {featuredProjects.map(proj => {
