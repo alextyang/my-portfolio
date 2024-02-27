@@ -2,12 +2,12 @@ import Image from "next/image";
 import cover from "./src/cover.svg";
 
 export const projectInfo: Project = {
-    path: 'accountable-brands',
+    path: 'sunrise',
     coverImage: {
         src: cover,
         alt: ''
     },
-    title: 'Accountable Brands',
+    title: 'Sunrise',
     subtitle: '',
     tags: [''],
     priority: 1,

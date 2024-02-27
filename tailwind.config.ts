@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      aspectRatio: {
+        '3/2': '3 / 2',
+      },
       fontFamily: {
         'nhgt': ['neue-haas-grotesk-text', 'sans-serif'],
         'nhgd': ['neue-haas-grotesk-display', 'sans-serif'],
