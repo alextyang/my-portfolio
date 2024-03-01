@@ -4,6 +4,8 @@ export type Project = {
     coverImage: string,
     title: string,
     subtitle: string,
+    link?: string,
     tags: string[],
-    priority: number,
+    tools: string[],
+    resources: string[],
 };

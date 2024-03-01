@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xl: ['1.27rem', '1.78rem'],
+      },
       aspectRatio: {
         '3/2': '3 / 2',
       },
