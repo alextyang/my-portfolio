@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Project } from "../(lib)/schema";
 import Image from "next/image";
 import Link from "next/link";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 
 export function ProjectPage({ projectInfo, CaseStudy }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode }) {
@@ -16,7 +17,7 @@ export function ProjectPage({ projectInfo, CaseStudy }: { projectInfo: Project, 
     );
 }
 
-export function CaseImage({ className = "", src, alt, priority = false }: { className?: string, src: string, alt: string, priority?: boolean }) {
+export function CaseImage({ className = "", src, alt, priority = false }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean }) {
     return (
         <div className={className + " rounded-[1.75vw] overflow-hidden mb-[5.25%] drop-shadow-md"}>
             <Image src={src} alt={alt} />
