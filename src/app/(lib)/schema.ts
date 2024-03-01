@@ -7,5 +7,6 @@ export type Project = {
     link?: string,
     tags: string[],
     tools: string[],
+    languages: string[],
     resources: string[],
 };

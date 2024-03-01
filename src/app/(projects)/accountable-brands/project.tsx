@@ -11,10 +11,12 @@ export const projectInfo: Project = {
     path: 'accountable-brands',
     coverImage: cover,
     title: 'Accountable Brands',
-    subtitle: '',
-    tags: [],
-    tools: [],
-    resources: [],
+    subtitle: 'A crowd-sourced accountability platform.',
+    link: 'https://accountablebrands.org/',
+    tags: ['UI/UX', 'Frontend + Backend'],
+    tools: ['Figma', 'Google Cloud'],
+    languages: ['TypeScript'],
+    resources: ['React + Next.js', 'Tailwind CSS'],
 };
 
 const className = '';

@@ -15,6 +15,7 @@ export const projectInfo: Project = {
     subtitle: 'Re-thinking the smart home automation experience.',
     tags: ['UX/UI'],
     tools: ['Figma', 'Illustrator'],
+    languages: [],
     resources: [],
 };
 

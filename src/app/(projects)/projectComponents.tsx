@@ -85,6 +85,21 @@ export function ProjectHeader({ projectInfo }: { projectInfo: Project }) {
                         </div>
                     </>
                 ) : ''}
+                {projectInfo.languages.length > 0 ? (
+                    <>
+                        <svg className="relative inline w-7 h-7 top-[1.5px] ml-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-183v-274L200-596v274l240 139Zm80 0 240-139v-274L520-457v274Zm-40-343 237-137-237-137-237 137 237 137ZM160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v318q0 22-10.5 40T800-252L520-91q-19 11-40 11t-40-11L160-252Zm320-228Z" /></svg>
+                        <div className="relative inline ml-2 top-[4.5px]">
+                            {projectInfo.languages.map(language => {
+                                return (
+                                    <>
+                                        <p className="inline mr-0.5 first:hidden">, </p>
+                                        <p className="inline">{language}</p>
+                                    </>
+                                );
+                            })}
+                        </div>
+                    </>
+                ) : ''}
                 {projectInfo.resources.length > 0 ? (
                     <>
                         <svg className="relative inline w-6 h-6 top-[1px] ml-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M300-80q-58 0-99-41t-41-99v-520q0-58 41-99t99-41h500v600q-25 0-42.5 17.5T740-220q0 25 17.5 42.5T800-160v80H300Zm20-280h80v-440h-80v440Zm-20 200h373q-6-14-9.5-28.5T660-220q0-16 3-31t10-29H300q-26 0-43 17.5T240-220q0 26 17 43t43 17Z" /></svg>
