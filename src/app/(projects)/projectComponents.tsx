@@ -19,8 +19,28 @@ export function ProjectPage({ projectInfo, CaseStudy }: { projectInfo: Project, 
 
 export function CaseImage({ className = "", src, alt, priority = false }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean }) {
     return (
-        <div className={className + " rounded-[1.75vw] overflow-hidden mb-[5.25%] drop-shadow-md"}>
+        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
             <Image src={src} alt={alt} />
+        </div>
+    );
+}
+
+export function CaseVideo({ className = "", src }: { className?: string, src: string }) {
+    return (
+        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
+            <video autoPlay loop muted >
+                <source src={src} type="video/mp4" />
+                {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
+            </video>
+        </div>
+    );
+}
+
+export function CaseSplit({ className = "", src1, alt1, src2, alt2, priority = false }: { className?: string, src1: string | StaticImport, alt1: string, src2: string | StaticImport, alt2: string, priority?: boolean }) {
+    return (
+        <div className="grid grid-cols-2 mb-[3.5%]">
+            <CaseImage className={className + " col-start-1 col-end-1 mr-[5.25%] !mb-0"} src={src1} alt={alt1} priority={priority} />
+            <CaseImage className={className + " col-span-1 col-start-2 col-end-2 !mb-0"} src={src2} alt={alt2} priority={priority} />
         </div>
     );
 }
@@ -48,27 +68,28 @@ export function ProjectHeader({ projectInfo }: { projectInfo: Project }) {
             <Link href={'/'} className="inline mr-3.5 text-2xl font-medium ">Alex Yang</Link>
             <Link href={'/'} className="inline text-2xl font-medium text-left opacity-60">Full-Stack <span className="hidden sm:inline">Developer</span> & Creative Technologist<br /></Link>
 
-            <h1 className="inline-block mt-10 mb-1 text-5xl font-medium">{projectInfo.title}</h1>
+            <div className="flex flex-row flex-wrap-reverse  pt-10 pb-1.5 gap-y-2.5">
+                <h1 className="inline-block mr-3.5 text-5xl font-medium">{projectInfo.title}</h1>
 
-            {projectInfo.tags.length > 0 ? (
-                <div className="inline px-1.5 pt-1.5 ml-3.5 bg-current opacity-90 relative bottom-0.5 rounded-md">
-                    {/* <svg className="inline ml-3 mr-0.5 -top-[5px] relative fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" /></svg> */}
-                    <div className="relative inline -top-[1px] text-xl font-semibold tracking-tight text-slate-950">
-                        {projectInfo.tags.map(tag => {
-                            return (
-                                <>
-                                    <p className="inline mr-0.5 first:hidden">, </p>
-                                    <p className="inline">{tag}</p>
-                                </>
-                            );
-                        })}
+                {projectInfo.tags.length > 0 ? (
+                    <div className="inline whitespace-nowrap  mt-2.5 px-1.5 h-min  bg-current opacity-90 relative bottom-0.5 rounded-md">
+                        {/* <svg className="inline ml-3 mr-0.5 -top-[5px] relative fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z" /></svg> */}
+                        <div className="relative inline top-[1px] text-xl font-semibold tracking-tight text-slate-950">
+                            {projectInfo.tags.map(tag => {
+                                return (
+                                    <>
+                                        <p className="inline mr-0.5 first:hidden">, </p>
+                                        <p className="inline">{tag}</p>
+                                    </>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            ) : ''}
+                ) : ''}
+            </div>
 
 
-            <br />
-            <p className="block ml-0.5 first:hidden mt-0.5 text-3xl font-light tracking-wider">{projectInfo.subtitle}</p>
+            <p className="block ml-0.5 first:hidden text-3xl font-light tracking-wider">{projectInfo.subtitle}</p>
             <div className="mt-3.5 text-xl font-medium tracking-wider">
                 {projectInfo.tools.length > 0 ? (
                     <>
