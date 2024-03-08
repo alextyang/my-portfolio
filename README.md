@@ -15,6 +15,6 @@
 <p align="center">A selection of my development and design work, built as a Next.js app, and deployed as a static webpage with GitHub Actions + Pages.</p>
 <br/>
 
-<br/><br/><br/>
+<br/><br/>
 
 ![Preview](.github/images/preview.png)
