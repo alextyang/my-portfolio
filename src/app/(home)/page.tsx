@@ -22,12 +22,12 @@ export default function Home() {
         <div className="flex flex-col justify-between w-full mt-[6vh] mb-12  h-min sm:mt-auto sm:flex-row sm:flex-wrap">
           {featuredProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[48%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={" "} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[48%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={"text-xl sm:text-lg md:text-xl"} />
             );
           })}
           {otherProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[30.66%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={" inline-block md:hidden lg:inline-block z-20"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[30.66%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl sm:hidden md:line-clamp-1 md:text-lg lg:text-lg xl:text-xl"} />
             );
           })}
         </div>
@@ -46,7 +46,7 @@ function ProjectItem({ proj, className, imageClass, titleClass }: { proj: Projec
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" className="fill-white"><path d={proj.icons[0]} /></svg>
             </div>
           ) : ''}
-          <p className={"text-black z-10 text-xl sm:text-lg md:text-xl left-0 right-0 text-center line-clamp-1 w-full " + titleClass}>
+          <p className={"text-black z-10  left-0 right-0 text-center line-clamp-1 w-full " + titleClass}>
             {proj.title}
           </p>
           <div className="rounded-[8px] px-1 bg-black flex justify-center items-center absolute right-1.5 top-1 w-8 h-7 gap-1">
