@@ -29,8 +29,8 @@ import setup from "./src/setup.jpeg";
 const main_vid = "https://www.youtube.com/watch?v=5f5ZJpSIDpM";
 const floor_vid = "https://www.youtube.com/watch?v=gcjaJmUmA78";
 const install_vid = "https://www.youtube.com/watch?v=r5HGKNGL9Ro";
-const caption_vid = "/" + projectInfo.path + "/captions.mp4";
-const citation_vid = "/" + projectInfo.path + "/citations.mp4";
+const caption_vid = "/" + projectInfo.path + "/captions.MP4";
+const citation_vid = "/" + projectInfo.path + "/citations.MP4";
 const wall_vid = "/" + projectInfo.path + "/wall.mp4";
 const className = '';
 
