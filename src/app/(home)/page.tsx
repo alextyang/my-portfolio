@@ -27,7 +27,7 @@ export default function Home() {
           })}
           {otherProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[30.66%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={" hidden md:inline-block z-20"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[30.66%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={" inline-block sm:hidden md:inline-block z-20"} />
             );
           })}
         </div>
