@@ -51,7 +51,7 @@ export function ProjectFooter({ projectInfo }: { projectInfo: Project }) {
         <div className="w-full rounded-[1.25vw] overflow-hidden bg-zinc-900 p-6 text-lg tracking-wide font-semibold text-zinc-100 drop-shadow-md">
             <Link href={'/'} className="rounded-[8px] border-[3px] w-56 border-white flex flex-row justify-center items-center p-3.5 gap-2 float-left  text-white">
                 <svg className="relative block w-6 h-6 -ml-1 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" /></svg>
-                <p className="">Back to portfolio</p>
+                <p className="hidden sm:inline">Back to portfolio</p>
             </Link>
             {projectInfo.link ? (
                 <Link href={projectInfo.link} className="rounded-[8px] font-bold border-[3px] border-white flex flex-row justify-center items-center w-[152px] p-3.5 gap-1.5 float-right  text-white ">
