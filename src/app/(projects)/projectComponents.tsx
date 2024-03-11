@@ -29,7 +29,7 @@ export function CaseImage({ className = "", src, alt, priority = false }: { clas
 export function CaseVideo({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
     return (
         <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
-            <video autoPlay loop disablePictureInPicture muted preload="auto" poster={src.replace('.mp4', '.png')} className={videoClassName} >
+            <video autoPlay loop disablePictureInPicture playsInline muted preload="auto" poster={src.replace('.mp4', '.png')} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
             </video>
