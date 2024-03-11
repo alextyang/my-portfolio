@@ -2,6 +2,7 @@ import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
 import cover from "./src/cover.png";
+import { CaseVideoStream } from "../videoUtils";
 
 export const projectInfo: Project = {
     path: 'refashion',
@@ -17,11 +18,31 @@ export const projectInfo: Project = {
 };
 
 
+const runway_vid = "https://www.youtube.com/watch?v=o5ODAwrdfQs";
+const logo_vid = "/" + projectInfo.path + "/logo.mp4";
+const title_vid = "/" + projectInfo.path + "/title.mp4";
+
+import event1 from "./src/event1.jpg";
+import event2 from "./src/event2.jpg";
+import event3 from "./src/event3.jpg";
+import event4 from "./src/event4.jpg";
+import event5 from "./src/event5.jpg";
+
+import slide1 from "./src/slide1.png";
+import slide2 from "./src/slide2.png";
+
 const className = '';
 
 export function CaseStudy() {
     return (
         <>
+            <CaseVideoStream className={className + " min-h-[100vh] min-w-[100vw] aspect-video fixed top-0 left-[50%] pt-[56.25%] -translate-x-1/2 -z-20 "} videoClassName=" object-fit-cover pointer-events-none" src={runway_vid} />
+            <CaseVideo className={className + " -mt-[7%] mix-blend-exclusion !drop-shadow-none"} src={title_vid} />
+            <CaseVideo className={className + " !mb-[21%] mt-[3%]  mix-blend-exclusion !drop-shadow-none"} src={logo_vid} />
+            <CaseSplit className={className + " h-[]"} divClassName={""} src1={slide1} src2={slide2} alt1="" alt2="" />
+            <CaseSplit className={className + " "} divClassName={""} src1={event3} src2={event1} alt1="" alt2="" />
+            <CaseSplit className={className + " -mt-[0%] "} divClassName={""} src1={event2} src2={event5} alt1="" alt2="" />
+
         </>
     );
 }

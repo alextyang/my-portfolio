@@ -26,10 +26,10 @@ export function CaseImage({ className = "", src, alt, priority = false }: { clas
     );
 }
 
-export function CaseVideo({ className = "", src }: { className?: string, src: string }) {
+export function CaseVideo({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
     return (
         <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
-            <video autoPlay loop disablePictureInPicture muted preload="auto" poster={src.replace('.mp4', '.png')} >
+            <video autoPlay loop disablePictureInPicture muted preload="auto" poster={src.replace('.mp4', '.png')} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
             </video>
@@ -37,10 +37,10 @@ export function CaseVideo({ className = "", src }: { className?: string, src: st
     );
 }
 
-export function CaseSplit({ className = "", src1, alt1, src2, alt2, priority = false }: { className?: string, src1: string | StaticImport, alt1: string, src2: string | StaticImport, alt2: string, priority?: boolean }) {
+export function CaseSplit({ className = "", divClassName = "", src1, alt1, src2, alt2, priority = false }: { className?: string, divClassName?: string, src1: string | StaticImport, alt1: string, src2: string | StaticImport, alt2: string, priority?: boolean }) {
     return (
-        <div className="grid grid-cols-2 mb-[3.5%]">
-            <CaseImage className={className + " col-start-1 col-end-1 mr-[5.25%] !mb-0"} src={src1} alt={alt1} priority={priority} />
+        <div className={"grid grid-cols-2 mb-[4%] gap-[4%] " + divClassName}>
+            <CaseImage className={className + " col-start-1 col-end-1  !mb-0"} src={src1} alt={alt1} priority={priority} />
             <CaseImage className={className + " col-span-1 col-start-2 col-end-2 !mb-0"} src={src2} alt={alt2} priority={priority} />
         </div>
     );

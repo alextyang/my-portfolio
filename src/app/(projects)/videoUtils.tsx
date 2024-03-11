@@ -8,6 +8,16 @@ import { read } from 'fs';
 
 const DEBUG = true;
 
+
+
+export function CaseVideoStream({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
+    return (
+        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
+            <ReactPlayer key={src + 'player'} className={"absolute top-0 left-0 " + videoClassName} url={src} controls={false} width='100%' height='100%' playing={true} loop pip={false} volume={0} muted={true} preload="auto" poster={src.replace('.mp4', '.png')} />
+        </div>
+    );
+}
+
 export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { videoSrcs: string[], classNames: string[], videoClassNames: string[] }) {
     const [videos, setVideos] = useState<MutableRefObject<ReactPlayer>[]>([]);
     const [readyCounter, setReadyCounter] = useState<number>(0);
@@ -20,6 +30,7 @@ export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { video
             Array(arrLength)
                 .fill(null)
                 .map((_, i) => videos[i] || createRef()));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [arrLength]);
 
     useEffect(() => {
@@ -35,7 +46,7 @@ export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { video
                     const diff = video.current.getCurrentTime() - currentTime;
                     if (Math.abs(diff) > 0.1) {
                         video.current.seekTo(currentTime, "seconds");
-                        if (DEBUG) console.log("[Correction] " + index + " was off by " + diff);
+                        // if (DEBUG) console.log("[Correction] " + index + " was off by " + diff);
                     }
                     // if (DEBUG) console.log("[Progress] " + index + " is off by " + diff);
                 });
@@ -129,7 +140,7 @@ export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { video
     return (<div className='h-full w-full'>
         {videoSrcs.map((videoSrc, index) => {
             return (
-                <CaseVideoAdv key={videoSrc} refs={videos} className={classNames[index]} videoClassName={videoClassNames[index]} index={index} src={videoSrc} showControls={index == 0 || !playing} playing={playing} muted={true} onBuffer={() => onBuffer(index)} onBufferEnd={() => onBufferEnd(index)} onPause={() => onPause(index)} onStart={() => onStart(index)} onReady={onReady} />
+                <CaseVideoAdv key={videoSrc} refs={videos} className={classNames[index]} videoClassName={videoClassNames[index]} index={index} src={videoSrc} showControls={index == 0 || (!playing && videoSrc.includes('http'))} playing={playing} muted={true} onBuffer={() => onBuffer(index)} onBufferEnd={() => onBufferEnd(index)} onPause={() => onPause(index)} onStart={() => onStart(index)} onReady={onReady} />
             );
         })}
     </div>);
@@ -138,7 +149,7 @@ export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { video
 function CaseVideoAdv({ className, videoClassName, src, refs, index, showControls, playing, muted, onSeek, onBuffer, onBufferEnd, onPause, onProgress, onPlay, onStart, onReady }: { className?: string, index: number, src: string, videoClassName: string, refs: MutableRefObject<ReactPlayer>[], showControls: boolean, playing: boolean, muted: boolean, onSeek?: ((seconds: number) => void) | undefined, onBuffer?: (() => void) | undefined, onBufferEnd?: (() => void) | undefined, onPause?: (() => void) | undefined, onProgress?: ((state: OnProgressProps) => void) | undefined, onPlay?: (() => void) | undefined, onStart?: (() => void) | undefined, onReady?: ((player: ReactPlayer) => void) | undefined }) {
     return (
         <div key={src + 'div'} className={className}>
-            <ReactPlayer key={src + 'player'} className={"absolute top-0 left-0 " + videoClassName} ref={refs[index]} url={src} controls={showControls} width='100%' height='100%' playing={playing} loop pip={false} volume={1} muted={muted} preload="auto" poster={src.replace('.mp4', '.png')} onSeek={onSeek} onBuffer={onBuffer} onBufferEnd={onBufferEnd} onPause={onPause} onProgress={onProgress} onPlay={onPlay} onStart={onStart} onReady={onReady} />
+            <ReactPlayer key={src + 'player'} className={"absolute top-0 left-0 " + videoClassName} ref={refs[index]} url={src} controls={showControls} width='100%' height='100%' playing={playing} loop pip={false} volume={0} muted={muted} preload="auto" poster={src.replace('.mp4', '.png')} onSeek={onSeek} onBuffer={onBuffer} onBufferEnd={onBufferEnd} onPause={onPause} onProgress={onProgress} onPlay={onPlay} onStart={onStart} onReady={onReady} />
         </div>
     );
 }
