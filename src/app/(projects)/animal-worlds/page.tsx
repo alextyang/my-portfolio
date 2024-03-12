@@ -3,6 +3,6 @@ import { ProjectPage } from "../projectComponents";
 
 export default function Page() {
     return (
-        <ProjectPage projectInfo={projectInfo} CaseStudy={CaseStudy} />
+        <ProjectPage projectInfo={projectInfo} CaseStudy={CaseStudy} maxWidth="5xl" />
     );
 }

@@ -6,10 +6,10 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 
 
-export function ProjectPage({ projectInfo, CaseStudy }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode }) {
+export function ProjectPage({ projectInfo, CaseStudy, maxWidth = "7xl" }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode, maxWidth?: string }) {
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen px-[5vw] pt-10 text-left font-nhgd">
-            <div className="flex flex-col items-center justify-start w-full min-h-screen mb-12 max-w-7xl ">
+            <div className={"flex flex-col items-center justify-start w-full min-h-screen mb-12 max-w-" + maxWidth}>
                 <ProjectHeader projectInfo={projectInfo} />
                 <CaseStudy />
                 <ProjectFooter projectInfo={projectInfo} />
