@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { projectInfo, CaseStudy } from "./project";
 import { ProjectPage } from "../projectComponents";
 

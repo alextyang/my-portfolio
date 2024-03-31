@@ -24,3 +24,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.home-item:hover .item-info {
+  top: -3.25rem;
+}
+
+.home-item:hover img {
+  margin-top: 0rem;
+}

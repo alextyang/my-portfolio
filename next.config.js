@@ -11,7 +11,7 @@ const nextConfig = {
     },
     // basePath: "/my-portfolio", // <=== github pages domain requirement
     output: "export",  // <=== enables static exports
-    reactStrictMode: true,
+    reactStrictMode: false,
     images: {
         unoptimized: true,
     }

@@ -7,6 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xs: '440px',
+      sm: '520px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    colors: {
+      'white': '#f4f4f4',
+      'grey': '#6f7071',
+      'black': '#030405',
+    },
     extend: {
       fontSize: {
         xl: ['1.27rem', '1.78rem'],
