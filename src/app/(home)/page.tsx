@@ -29,7 +29,7 @@ export default function Home() {
           })}
           {otherProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[30.66%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl md:hidden lg:line-clamp-1 lg:text-lg xl:text-lg xl:text-xl"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[30.66%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl sm:hidden md:line-clamp-1 lg:text-lg xl:text-lg xl:text-xl"} />
             );
           })}
         </div>
