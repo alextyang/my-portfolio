@@ -24,12 +24,12 @@ export default function Home() {
         <div className="flex flex-col justify-between w-full mt-[6vh] mb-12  h-min md:mt-auto md:flex-row md:flex-wrap">
           {featuredProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[48%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={"text-xl sm:text-lg md:text-xl"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[48%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={"text-xl md:text-lg lg:text-xl"} />
             );
           })}
           {otherProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative sm:w-[30.66%] mb-[6%] sm:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl sm:hidden md:line-clamp-1 md:text-lg lg:text-lg xl:text-xl"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[30.66%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all drop-shadow-md"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl md:hidden lg:line-clamp-1 lg:text-lg xl:text-lg xl:text-xl"} />
             );
           })}
         </div>
