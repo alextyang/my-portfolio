@@ -43,7 +43,7 @@ function Footer() {
     <div className="flex flex-row w-auto flex-nowrap justify-around sm:justify-center h-12 px-3.5 mx-3.5 mb-6 -mt-3.5 gap-5">
       {socialLinks.map((social) => {
         return (
-          <Link key={social.href} href={social.href}>
+          <Link key={social.href} href={social.href} className="cursor-pointer">
             {social.icon}
           </Link>
         );
