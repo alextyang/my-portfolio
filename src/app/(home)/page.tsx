@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex flex-col justify-between w-full mt-[6vh] mb-12  h-min md:mt-auto md:flex-row md:flex-wrap">
           {featuredProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[48%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={"text-xl md:text-lg lg:text-xl"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[48%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all drop-shadow-md"} imageClass={"rounded-[5%]"} titleClass={"text-xl sm:text-lg md:text-xl"} />
             );
           })}
           {otherProjects.map(proj => {
