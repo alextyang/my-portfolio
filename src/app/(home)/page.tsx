@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start w-full min-h-[90vh] px-[5vw] pt-10 text-left font-nhgd">
       <div className="flex flex-col items-center justify-start max-w-5xl min-h-[90vh] gap-10">
-        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Full-stack developer and Creative Technologist located in New York City.</p>
+        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Front end developer (Full-stack curious) and Creative Technologist in Bed-Stuy, Brooklyn.</p>
 
-        {/* TODO: Kaleidoscope toy https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope */}
+        {/* TODO: Kaleidoscope background? https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope */}
 
         <div className="flex flex-col justify-between w-full mt-[6vh] mb-12  h-min sm:mt-auto sm:flex-row sm:flex-wrap">
           {featuredProjects.map(proj => {
