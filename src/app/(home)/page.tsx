@@ -8,6 +8,7 @@ import { projectInfo as AM } from "../(projects)/animal-worlds/project";
 import { projectInfo as NA } from "../(projects)/name-the-age/project";
 import { projectInfo as RF } from "../(projects)/refashion/project";
 
+export const projectOrder: string[] = [AB.path, SR.path, NA.path, AM.path, RF.path];
 const featuredProjects: Project[] = [AB, SR];
 const otherProjects: Project[] = [AM, RF, NA];
 
@@ -17,19 +18,19 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start w-full min-h-[90vh] px-[5vw] pt-10 text-left font-nhgd">
       <div className="flex flex-col items-center justify-start max-w-5xl min-h-[90vh] gap-10">
-        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Front-end developer <span className="opacity-60">(Full-stack curious)</span> & Creative Technologist in Bed-Stuy <span className="opacity-60">(Brooklyn)</span>.</p>
+        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Full-stack developer <span className="opacity-60">(Front-end curious)</span> & Creative Technologist in Bed-Stuy <span className="opacity-60">(Brooklyn)</span>.</p>
 
         {/* TODO: Kaleidoscope background? https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope */}
 
         <div className="flex flex-col justify-between w-full mt-[6vh] mb-12  h-min md:mt-auto md:flex-row md:flex-wrap">
           {featuredProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[48%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all cursor-pointer"} imageClass={"rounded-[5%]"} titleClass={"text-xl sm:text-lg md:text-xl cursor-pointer"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[48%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.025] transition-all cursor-pointer"} imageClass={"rounded-[5%]"} titleClass={"text-xl sm:text-xl md:text-xl cursor-pointer"} />
             );
           })}
           {otherProjects.map(proj => {
             return (
-              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[30.66%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all cursor-pointer"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl sm:hidden md:line-clamp-1 lg:text-lg xl:text-lg xl:text-xl cursor-pointer"} />
+              <ProjectItem key={proj.title} proj={proj} className={"home-item relative md:w-[30.66%] mb-[6%] md:mb-[4.25%] aspect-3/2 hover:scale-[1.1] transition-all cursor-pointer"} imageClass={"rounded-[7.5%]"} titleClass={"z-20 text-xl md:hidden lg:inline md:line-clamp-1 lg:text-lg xl:text-xl cursor-pointer"} />
             );
           })}
         </div>
@@ -48,7 +49,7 @@ function ProjectItem({ proj, className, imageClass, titleClass }: { proj: Projec
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" className="fill-white"><path d={proj.icons[0]} /></svg>
             </div>
           ) : ''}
-          <p className={"text-black z-10  left-0 right-0 text-center line-clamp-1 w-full " + titleClass}>
+          <p className={"text-black z-10 left-0 right-0 text-center line-clamp-1 w-full " + titleClass}>
             {proj.title}
           </p>
           <div className="rounded-[8px] px-1 bg-black flex justify-center items-center absolute right-1.5 top-1 w-8 h-7 gap-1">
