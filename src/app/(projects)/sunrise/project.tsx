@@ -2,7 +2,7 @@ import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseVideo } from "../projectComponents";
 
 // DATA: Header & hover-able details
-import cover from "./src/cover.svg";
+import cover from "./src/cover.png";
 export const projectInfo: Project = {
     path: 'sunrise',
     href: 'sunrise',
