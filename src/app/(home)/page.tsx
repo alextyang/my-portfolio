@@ -17,7 +17,16 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start w-full min-h-[90vh] px-[5vw] pt-10 text-left font-nhgd">
       <div className="flex flex-col items-center justify-start max-w-5xl min-h-[90vh] gap-10">
-        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">Hi! My name is Alex and I&apos;m a Full-stack developer <span className="opacity-60">(Front-end curious)</span> & Creative Technologist in Bed-Stuy <span className="opacity-60">(Brooklyn)</span>.</p>
+        <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">
+          <span className="opacity-100">Hi!</span>
+          <span className="opacity-70"> My name is </span>
+          <span className="opacity-100"> Alexander</span>
+          <span className="opacity-70"> and I&apos;m a </span>
+          <span className="opacity-100"> developer & designer</span>
+          <span className="opacity-70"> in </span>
+          <span className="opacity-70"> Bed-Stuy, </span>
+          <span className="opacity-100"> Brooklyn.</span>
+        </p>
 
         {/* TODO: Kaleidoscope background? https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope */}
 
@@ -42,7 +51,7 @@ export default function Home() {
 function ProjectItem({ proj, className, imageClass, titleClass }: { proj: Project, className: string, imageClass: string, titleClass: string }) {
   return (
     <Link key={proj.title} href={proj.href} target={proj.href.includes('https') ? '_blank' : '_self'} className={className}>
-      <div key={proj.subtitle} className="item-info w-full h-9 absolute top-0 -z-10 transition-all drop-shadow-lg">
+      <div key={proj.subtitle} className="absolute top-0 w-full transition-all item-info h-9 -z-10 drop-shadow-lg">
         <div className="w-[94%] mx-auto mt-1 bg-white h-9 rounded-[12px] transition-all flex flex-nowrap justify-between gap-2 px-12 py-1 items-center font-semibold text-sm relative">
           {proj.icons.length > 0 ? (
             <div className="rounded-[8px] px-1.5 py-1 bg-black flex items-center absolute left-1.5 top-1 h-7 w-9">

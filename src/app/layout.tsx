@@ -3,6 +3,7 @@ import "./(lib)/font.css";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "./siteComponents";
 import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Alex Yang — Full-Stack Developer & Creative Technologist",
@@ -16,11 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-nhgt text-white overflow-x-clip">
+      <body className="text-white font-nhgt overflow-x-clip">
         <Suspense>
           <SiteHeader />
         </Suspense>
         {children}
+        <Analytics />
         <SiteFooter />
       </body>
     </html>
