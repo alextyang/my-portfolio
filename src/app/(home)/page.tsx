@@ -38,6 +38,7 @@ export default function Home() {
   );
 }
 
+// COMPONENT: Rounded splash image of a project, with hover-menu for details
 function ProjectItem({ proj, className, imageClass, titleClass }: { proj: Project, className: string, imageClass: string, titleClass: string }) {
   return (
     <Link key={proj.title} href={proj.href} target={proj.href.includes('https') ? '_blank' : '_self'} className={className}>

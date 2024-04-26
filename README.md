@@ -12,7 +12,7 @@
 
 <br/>
 
-<p align="center">A selection of my development and design work, built as a Next.js app, and deployed as a static webpage with GitHub Actions + Pages.</p>
+<p align="center">A selection of my development and design work, built as a Next.js app, and deployed to Vercel.</p>
 <br/>
 
 <br/><br/>

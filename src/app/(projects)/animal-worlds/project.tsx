@@ -4,6 +4,7 @@ import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 import cover from "./src/cover.png";
 import { SyncedVideos } from "../videoUtils";
 
+// DATA: Header & hover-able details
 export const projectInfo: Project = {
     path: 'animal-worlds',
     href: 'animal-worlds',
@@ -18,6 +19,7 @@ export const projectInfo: Project = {
 };
 
 
+// MEDIA: Images
 import ae from "./src/ae.png";
 import cite from "./src/citations.jpeg";
 import floor from "./src/floor.jpeg";
@@ -26,15 +28,19 @@ import patchWhale from "./src/patch-whale.png";
 import patchMain from "./src/patch-main.png";
 import setup from "./src/setup.jpeg";
 
+// MEDIA: Videos
 const main_vid = "https://www.youtube.com/watch?v=5f5ZJpSIDpM";
 const floor_vid = "https://www.youtube.com/watch?v=gcjaJmUmA78";
 const install_vid = "https://www.youtube.com/watch?v=r5HGKNGL9Ro";
 const caption_vid = "/" + projectInfo.path + "/captions.MP4";
 const citation_vid = "/" + projectInfo.path + "/citations.MP4";
 const wall_vid = "/" + projectInfo.path + "/wall.mp4";
+
+// VAR: Common styles
 const className = '';
 
-export function CaseStudy() {
+// COMPONENT: Body content / project story
+export function ProjectStory() {
     return (
         <>
             <SyncedVideos videoSrcs={[main_vid, floor_vid, caption_vid, citation_vid, install_vid]} classNames={["h-full w-full relative pt-[56.0319%] rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md", "min-h-[calc(100vh+5.25rem)] min-w-[100vw] aspect-video pt-[56.25%] fixed -top-20 left-[50%] -translate-x-1/2 fixed -z-20", "h-full w-3/4 relative pt-[13.125%] mx-auto rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md bg-black", "h-full w-1/2 relative pt-[6.75%] rounded-[1.25vw] overflow-hidden mb-[56%] mx-auto drop-shadow-md bg-black", "h-full w-full relative pt-[56.0319%] rounded-[1.25vw] overflow-hidden mb-[56%] drop-shadow-md",]} videoClassNames={['', 'object-fit-cover pointer-events-none', '', '', '']}></SyncedVideos>

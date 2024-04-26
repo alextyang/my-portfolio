@@ -7,8 +7,8 @@ import { ProjectHeaderInline } from "./projectHeader";
 import { projectOrder } from "../(lib)/links";
 
 
-
-export function ProjectPage({ projectInfo, CaseStudy, maxWidth = "7xl" }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode, maxWidth?: string }) {
+// COMPONENT: Template page generated based on projectInfo
+export function ProjectPage({ projectInfo, CaseStudy: ProjectStory, maxWidth = "7xl" }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode, maxWidth?: string }) {
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen px-[5vw] text-left font-nhgd">
             <div className={"flex flex-col items-center justify-start w-full min-h-screen mb-12 max-w-" + maxWidth}>
@@ -16,24 +16,26 @@ export function ProjectPage({ projectInfo, CaseStudy, maxWidth = "7xl" }: { proj
                     <title>{projectInfo.title + ' - Alex Yang'}</title>
                 </head>
                 <ProjectHeaderInline projectInfo={projectInfo} />
-                <CaseStudy />
+                <ProjectStory />
                 <ProjectFooter projectInfo={projectInfo} />
             </div>
         </div>
     );
 }
 
+// COMPONENT: Rounded image for use in project body
 export function CaseImage({ className = "", src, alt, priority = false }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean }) {
     return (
-        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
+        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%]"}>
             <Image src={src} alt={alt} />
         </div>
     );
 }
 
+// COMPONENT: Internal video embed for use in project body
 export function CaseVideo({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
     return (
-        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
+        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%]"}>
             <video autoPlay loop disablePictureInPicture playsInline muted preload="auto" poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
@@ -42,6 +44,7 @@ export function CaseVideo({ className = "", src, videoClassName }: { className?:
     );
 }
 
+// COMPONENT: Two image comparison
 export function CaseSplit({ className = "", divClassName = "", src1, alt1, src2, alt2, priority = false }: { className?: string, divClassName?: string, src1: string | StaticImport, alt1: string, src2: string | StaticImport, alt2: string, priority?: boolean }) {
     return (
         <div className={"grid grid-cols-2 mb-[4%] gap-[4%] " + divClassName}>
@@ -51,25 +54,27 @@ export function CaseSplit({ className = "", divClassName = "", src1, alt1, src2,
     );
 }
 
-export function ProjectFooter({ projectInfo }: { projectInfo: Project }) {
+// COMPONENT: Action links at the end, back & open external project if applicable
+function ProjectFooter({ projectInfo }: { projectInfo: Project }) {
 
     return (
         <div className="w-full rounded-[1.25vw] px-[5vw] max-w-5xl overflow-hidden py-6 text-lg tracking-wide font-semibold text-white flex flex-row justify-between">
-            <Button href={'/'} className="">
+            <ActionButton href={'/'} className="">
                 <svg className="relative block w-6 h-6 -ml-1 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" /></svg>
                 <p className="hidden sm:inline">Back to portfolio</p>
-            </Button>
+            </ActionButton>
             {projectInfo.link ? (
-                <Button href={projectInfo.link} className="">
+                <ActionButton href={projectInfo.link} className="">
                     <p className="">Visit site</p>
                     <svg className="relative block w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M218.87-135.869q-34.483 0-58.742-24.259t-24.259-58.742v-522.26q0-34.483 24.259-58.742t58.742-24.259H480v83.001H218.87v522.26h522.26V-480h83.001v261.13q0 34.483-24.259 58.742t-58.742 24.259H218.87ZM394.413-336 336-394.413 682.717-741.13H576v-83.001h248.131V-576H741.13v-106.717L394.413-336Z" /></svg>
-                </Button>
+                </ActionButton>
             ) : ''}
         </div>
     );
 }
 
-export function Button({
+// COMPONENT: CTA button for external links
+export function ActionButton({
     children, href, className
 }: {
     children: React.ReactNode;

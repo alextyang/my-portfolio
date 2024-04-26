@@ -1,15 +1,13 @@
 "use client";
 
-import { LegacyRef, MutableRefObject, createRef, useEffect, useState } from 'react';
+import { MutableRefObject, createRef, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player'
 import { OnProgressProps } from "react-player/base";
-import { useRef } from "react";
-import { read } from 'fs';
 
-const DEBUG = true;
+const DEBUG = false;
 
 
-
+// COMPONENT: External video embed for project body
 export function CaseVideoStream({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
     return (
         <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%] drop-shadow-md"}>
@@ -18,10 +16,11 @@ export function CaseVideoStream({ className = "", src, videoClassName }: { class
     );
 }
 
+// COMPONENT: External video embeds that play in sync. All sync to first video.
 export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { videoSrcs: string[], classNames: string[], videoClassNames: string[] }) {
     const [videos, setVideos] = useState<MutableRefObject<ReactPlayer>[]>([]);
     const [readyCounter, setReadyCounter] = useState<number>(0);
-    const [bufferCounter, setBufferCounter] = useState<number>(0);
+    // const [bufferCounter, setBufferCounter] = useState<number>(0);
     const [playing, setPlaying] = useState(false);
     const arrLength = videoSrcs.length;
 
@@ -133,23 +132,32 @@ export function SyncedVideos({ videoSrcs, classNames, videoClassNames }: { video
     };
 
 
-
-
-
-
-    return (<div className='h-full w-full'>
+    return (<div className='w-full h-full'>
         {videoSrcs.map((videoSrc, index) => {
             return (
-                <CaseVideoAdv key={videoSrc} refs={videos} className={classNames[index]} videoClassName={videoClassNames[index]} index={index} src={videoSrc} showControls={index == 0 || (!playing && videoSrc.includes('http'))} playing={playing} muted={true} onBuffer={() => onBuffer(index)} onBufferEnd={() => onBufferEnd(index)} onPause={() => onPause(index)} onStart={() => onStart(index)} onReady={onReady} />
+                <div key={videoSrc + 'div'} className={classNames[index]}>
+                    <ReactPlayer
+                        key={videoSrc + 'player'}
+                        ref={videos[index]}
+                        url={videoSrc}
+                        className={"absolute top-0 left-0 " + videoClassNames[index]}
+                        controls={index == 0 || (!playing && videoSrc.includes('http'))}
+                        playing={playing}
+                        muted={true}
+                        onBuffer={() => onBuffer(index)}
+                        onBufferEnd={() => onBufferEnd(index)}
+                        onPause={() => onPause(index)}
+                        onStart={() => onStart(index)}
+                        onReady={onReady}
+                        poster={videoSrc.replace('.mp4', '.png')}
+                        width='100%' height='100%'
+                        loop
+                        pip={false}
+                        volume={0}
+                        preload="true"
+                        playsinline />
+                </div>
             );
         })}
     </div>);
-}
-
-function CaseVideoAdv({ className, videoClassName, src, refs, index, showControls, playing, muted, onSeek, onBuffer, onBufferEnd, onPause, onProgress, onPlay, onStart, onReady }: { className?: string, index: number, src: string, videoClassName: string, refs: MutableRefObject<ReactPlayer>[], showControls: boolean, playing: boolean, muted: boolean, onSeek?: ((seconds: number) => void) | undefined, onBuffer?: (() => void) | undefined, onBufferEnd?: (() => void) | undefined, onPause?: (() => void) | undefined, onProgress?: ((state: OnProgressProps) => void) | undefined, onPlay?: (() => void) | undefined, onStart?: (() => void) | undefined, onReady?: ((player: ReactPlayer) => void) | undefined }) {
-    return (
-        <div key={src + 'div'} className={className}>
-            <ReactPlayer key={src + 'player'} className={"absolute top-0 left-0 " + videoClassName} ref={refs[index]} url={src} controls={showControls} width='100%' height='100%' playing={playing} loop pip={false} volume={0} muted={muted} preload="auto" poster={src.replace('.mp4', '.png')} onSeek={onSeek} onBuffer={onBuffer} onBufferEnd={onBufferEnd} onPause={onPause} onProgress={onProgress} onPlay={onPlay} onStart={onStart} onReady={onReady} playsinline />
-        </div>
-    );
 }

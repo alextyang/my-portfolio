@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 
+// Schema for each project's header section & hover-able details
 export type Project = {
     path: string,
     href: string,

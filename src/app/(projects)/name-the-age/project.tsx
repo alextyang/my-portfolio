@@ -3,6 +3,7 @@ import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
 import cover from "./src/cover.png";
 
+// DATA: Header & hover-able details
 export const projectInfo: Project = {
     path: 'name-the-age',
     href: 'https://names.alexya.ng/',
@@ -18,9 +19,10 @@ export const projectInfo: Project = {
 };
 
 
-const className = '';
+// MEDIA
 
-export function CaseStudy() {
+// COMPONENT: Body content / project story
+export function ProjectStory() {
     return (
         <>
         </>
