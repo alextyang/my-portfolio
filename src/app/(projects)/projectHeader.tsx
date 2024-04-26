@@ -39,12 +39,17 @@ function ProjectHeaderTags({ projectInfo, className = "" }: { projectInfo: Proje
     return (projectInfo.tags.length > 0 ? (
         <div className={"whitespace-nowrap h-min  bg-white opacity-90 relative bottom-0.5 rounded-md inline mt-2.5 px-1.5 " + className}>
             <div className="relative inline top-[1px] text-xl font-semibold tracking-tight text-black">
-                {projectInfo.tags.map(tag => {
+                {projectInfo.tags.map((tag, index) => {
+
+                    let comma = undefined;
+                    if (index != 0)
+                        comma = (<p className="inline mr-0.5">, </p>);
+
                     return (
-                        <>
-                            <p className="inline mr-0.5 first:hidden">, </p>
+                        <div key={tag} className="inline">
+                            {comma}
                             <p className="inline">{tag}</p>
-                        </>
+                        </div>
                     );
                 })}
             </div>
