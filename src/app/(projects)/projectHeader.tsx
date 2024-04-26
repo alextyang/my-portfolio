@@ -105,7 +105,7 @@ const toolIcons = {
 
 function ProjectHeaderTools({ projectInfo, className = "" }: { projectInfo: Project, className?: string }) {
     return (
-        <div className={"mt-3.5 text-xl font-medium tracking-wider flex flex-row gap-8 " + className}>
+        <div className={"mt-3.5 text-xl font-medium tracking-wider flex flex-row flex-wrap gap-y-2.5 gap-x-8 " + className}>
             <ProjectHeaderToolCategory tools={projectInfo.tools} icon={toolIcons.tools} />
             <ProjectHeaderToolCategory tools={projectInfo.languages} icon={toolIcons.languages} />
             <ProjectHeaderToolCategory tools={projectInfo.resources} icon={toolIcons.resources} />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { ProjectHeaderInline } from "./projectHeader";
-import { projectOrder } from "../(home)/page";
+import { projectOrder } from "../(lib)/links";
 
 
 
@@ -12,6 +12,9 @@ export function ProjectPage({ projectInfo, CaseStudy, maxWidth = "7xl" }: { proj
     return (
         <div className="flex flex-col items-center justify-start w-full min-h-screen px-[5vw] text-left font-nhgd">
             <div className={"flex flex-col items-center justify-start w-full min-h-screen mb-12 max-w-" + maxWidth}>
+                <head>
+                    <title>{projectInfo.title + ' - Alex Yang'}</title>
+                </head>
                 <ProjectHeaderInline projectInfo={projectInfo} />
                 <CaseStudy />
                 <ProjectFooter projectInfo={projectInfo} />
