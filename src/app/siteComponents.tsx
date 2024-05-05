@@ -4,10 +4,8 @@ import Link from "next/dist/client/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Project } from "./(lib)/schema";
 import { projectOrder } from "./(lib)/links";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LINKS } from "./(lib)/links";
-
-
 
 
 // HEADER
@@ -23,7 +21,11 @@ export function SiteHeader({ }: {}) {
         setIsOpen(!isOpen);
     }
 
-    const projectIndex = path ? projectOrder.indexOf(path.substring(1)) : -1;
+    const [projectIndex, setProjectIndex] = useState(-1);
+
+    useEffect(() => {
+        setProjectIndex(path ? projectOrder.indexOf(path.substring(1)) : -1);
+    }, [path])
 
     if (path.length <= 2)
         return ('');
@@ -32,10 +34,10 @@ export function SiteHeader({ }: {}) {
 
     return (
         <div className="px-[5vw] pt-10 w-full font-nhgd tracking-wide">
-            <div className="flex flex-row w-full font-nhgd tracking-wide">
+            <div className="flex flex-row w-full tracking-wide font-nhgd">
                 <div className="flex flex-col sm:flex-row gap-y-0.5">
                     <Link href={'/'} className=" mr-3.5 text-2xl font-medium ">Alex Yang</Link>
-                    <Link href={'/'} className=" text-2xl font-medium text-left opacity-60 pointer-events-none sm:pointer-events-auto ">Full-Stack <span className="hidden md:inline">Developer</span> & Creative Technologist<br /></Link>
+                    <Link href={'/'} className="text-2xl font-medium text-left pointer-events-none opacity-60 sm:pointer-events-auto">Full-Stack <span className="hidden md:inline">Developer</span> & Creative Technologist<br /></Link>
                 </div>
                 <MenuButton toggleMenu={toggleMenu} />
             </div>
@@ -51,8 +53,8 @@ function SiteMenu({ projectIndex, isOpen, className }: { projectIndex: number, i
         <div className={"flex flex-row flex-wrap justify-right items-center transition-all tracking-wide text-2xl font-medium gap-8 h-8 mt-2 opacity-100 w-full " + (isOpen ? '' : ' !h-0 !opacity-0 !mt-0 pointer-events-none ') + className}>
             <NavLink href={'/'}>Work</NavLink>
             <NavLink href={'/resume'}>Resume</NavLink>
-            <EmailCopyButton className="h-8 opacity-60 ml-2 hidden md:flex" />
-            {projectIndex != -1 ? <div className="ml-auto flex flex-row gap-4 z-20">
+            <EmailCopyButton className="hidden h-8 ml-2 opacity-60 md:flex" />
+            {projectIndex != -1 ? <div className="z-20 flex flex-row gap-4 ml-auto">
                 <PrevProjectButton projectIndex={projectIndex} />
                 <p className="mt-[2.5px] hidden md:inline-block">Projects</p>
                 <NextProjectButton projectIndex={projectIndex} />
@@ -91,9 +93,9 @@ const footerSocialIcons = [{
 // COMPONENT: Footer with socials and a navigation bar
 export function SiteFooter() {
     return (
-        <div className="flex flex-col px-[5vw] w-full max-w-5xl -mt-3.5 mb-10 gap-6 mx-auto">
+        <div className="flex flex-col px-[5vw] w-full max-w-5xl mt-0 mb-10 gap-6 mx-auto ">
 
-            <div className="flex flex-row w-auto flex-nowrap justify-around sm:justify-center h-12 gap-5">
+            <div className="flex flex-row justify-around w-auto h-12 gap-5 flex-nowrap sm:justify-center">
                 {footerSocialIcons.map((social) => {
                     return (
                         <Link key={social.href} href={social.href} className="cursor-pointer">
@@ -104,7 +106,7 @@ export function SiteFooter() {
             </div>
 
 
-            <div className="flex flex-row w-full flex-nowrap justify-around sm:justify-center h-4 gap-8 self-start text-lg mt-3 sm:text-base sm:mt-1">
+            <div className="flex flex-row self-start justify-around w-full h-4 gap-8 mt-3 text-lg flex-nowrap sm:justify-center sm:text-base sm:mt-1">
                 <NavLink href={'/'} className="ml-2">Work</NavLink>
                 <NavLink href={'/resume'}>Resume</NavLink>
                 <EmailCopyButton className="h-6 opacity-60 !flex !ml-auto" iconClassName="mt-px sm:mt-0" />

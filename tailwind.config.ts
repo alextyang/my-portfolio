@@ -13,6 +13,7 @@ const config: Config = {
       md: '820px',
       lg: '976px',
       xl: '1440px',
+      xxl: '2160px',
     },
     colors: {
       'white': '#f4f4f4',

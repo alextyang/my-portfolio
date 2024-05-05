@@ -3,40 +3,94 @@ import { Project } from "../(lib)/schema";
 import Image from "next/image";
 import Link from "next/link";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { ProjectHeaderInline } from "./projectHeader";
+import { ProjectHeaderCentered, ProjectHeaderInline, SplashImage } from "./projectHeader";
 import { projectOrder } from "../(lib)/links";
+import Balancer, { Provider } from 'react-wrap-balancer'
 
 
 // COMPONENT: Template page generated based on projectInfo
 export function ProjectPage({ projectInfo, CaseStudy: ProjectStory, maxWidth = "7xl" }: { projectInfo: Project, CaseStudy: (props: any) => ReactNode, maxWidth?: string }) {
     return (
-        <div className="flex flex-col items-center justify-start w-full min-h-screen px-[5vw] text-left font-nhgd">
-            <div className={"flex flex-col items-center justify-start w-full min-h-screen mb-12 max-w-" + maxWidth}>
-                <head>
-                    <title>{projectInfo.title + ' - Alex Yang'}</title>
-                </head>
-                <ProjectHeaderInline projectInfo={projectInfo} />
-                <ProjectStory />
-                <ProjectFooter projectInfo={projectInfo} />
+        <div className="w-full mx-auto">
+            <SplashImage projectInfo={projectInfo} />
+            <div className="flex flex-col items-center justify-start w-full min-h-screen px-[5vw] text-left font-nhgd mx-auto">
+                <div className={"flex flex-col items-center justify-start w-full min-h-screen mx-auto mb-12 max-w-" + maxWidth}>
+                    <head>
+                        <title>{projectInfo.title + ' - Alex Yang'}</title>
+                    </head>
+                    {projectInfo.splashImage ?
+                        <ProjectHeaderCentered projectInfo={projectInfo} /> :
+                        <ProjectHeaderInline projectInfo={projectInfo} />}
+
+                    <Provider>
+                        <ProjectStory />
+                    </Provider>
+
+                    <ProjectFooter projectInfo={projectInfo} />
+                </div>
             </div>
         </div>
     );
 }
 
 // COMPONENT: Rounded image for use in project body
-export function CaseImage({ className = "", src, alt, priority = false }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean }) {
+export function CaseImage({ className = "mb-[3.5%]", src, alt, priority = false, bgSrc }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean, bgSrc?: string | StaticImport }) {
     return (
-        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%]"}>
-            <Image src={src} alt={alt} />
+        <div className={"rounded-[1.25vw] overflow-hidden mx-auto relative " + className + (bgSrc ? ' !overflow-visible' : '')} title={alt}>
+            {bgSrc ? (
+                <div className="absolute -top-4 -bottom-4 w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10">
+                    <Image src={bgSrc} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" />
+                </div>
+            ) : ''}
+            <Image src={src} alt={alt} priority={priority} />
+        </div>
+    );
+}
+
+// COMPONENT: Feature video with paired text for UI prototypes 
+export function CasePrototype({ className = "", src, alt, title, subtitle, children }: { className?: string, src: string, alt: string, title: string, subtitle?: string, children: React.ReactNode }) {
+    return (
+
+        <div className={" flex flex-col w-auto items-center gap-12 mx-auto " + className}>
+            <CaseVideo className=" w-[50vw] max-w-72 mx-auto " src={src as string} ></CaseVideo>
+            <div className="w-full flex flex-col -mt-9 ">
+                <H1 className="-mb-2 !font-semibold !tracking-normal">{title}</H1>
+                {children}
+            </div>
+
+        </div>
+
+    );
+}
+
+// COMPONENT: Background image that fills its container
+export function CaseBg({ className = "top-0 bottom-0", src, priority = false }: { className?: string, src: string | StaticImport, priority?: boolean }) {
+    return (
+
+        <div className={"absolute w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10 " + className}>
+            <Image src={src} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" />
+        </div>
+
+    );
+}
+
+// COMPONENT: Internal video embed for use in project body
+export function CaseVideo({ className = "mb-[3.5%]", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
+    return (
+        <div className={"rounded-[1.25vw] overflow-hidden " + className}>
+            <video autoPlay loop disablePictureInPicture playsInline muted preload={'auto'} poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
+                <source src={src} type="video/mp4" />
+                {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
+            </video>
         </div>
     );
 }
 
 // COMPONENT: Internal video embed for use in project body
-export function CaseVideo({ className = "", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
+export function CaseVideoOptional({ className = "mb-[3.5%]", src, videoClassName }: { className?: string, src: string, videoClassName?: string, preload?: string }) {
     return (
-        <div className={className + " rounded-[1.25vw] overflow-hidden mb-[3.5%]"}>
-            <video autoPlay loop disablePictureInPicture playsInline muted preload="auto" poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
+        <div className={"rounded-[1.25vw] overflow-hidden " + className}>
+            <video loop controls preload={'none'} poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
             </video>
@@ -82,9 +136,107 @@ export function ActionButton({
     className: string;
 }) {
     return (
-        <Link href={href} className={"rounded-[8px] font-bold border-[3px] border-white flex flex-row justify-center items-center py-3.5 px-3.5 sm:px-7 gap-1.5 float-right  text-white text-base sm:text-lg " + className}>
+        <Link href={href} className={"rounded-[8px] font-bold border-[3px] border-white flex flex-row justify-center items-center py-3.5 px-3.5 sm:px-7 gap-1.5 text-white text-base sm:text-lg " + className}>
             {children}
         </Link>
     );
 }
 
+// COMPONENT: Tool-use description card
+export function CaseTool({
+    logoName, className = "max-w-72", desc
+}: {
+    logoName: string;
+    desc: string;
+    className?: string;
+}) {
+    return (
+        <div className={"rounded-[12px] border-[3px] border-white text-white px-7 pt-7 pb-3.5 " + className}>
+            <div className="relative aspect-square mx-auto h-24">
+                <Image src={'/logos/' + logoName + ".png"} alt={logoName + " Logo"} width={250} height={250} />
+            </div>
+            <p><b>{logoName}</b></p>
+            <div className="-mx-1.5">
+                <p className="!mt-0 inline-block !text-sm">{desc}</p>
+            </div>
+        </div>
+    );
+}
+
+// COMPONENT: Tool-use description
+export function CaseTools({
+    children, className
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <div className={"flex flex-col lg:flex-row gap-12 w-auto mx-auto " + className}>
+            {children}
+        </div>
+    );
+}
+
+// COMPONENT: Text node with wrap balancer
+export function H1({
+    children, className
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <h1 className={" " + className}>
+            <Balancer>
+                {children}
+            </Balancer>
+        </h1>
+    );
+}
+
+// COMPONENT: Text node with wrap balancer
+export function H2({
+    children, className
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <h2 className={" " + className}>
+            <Balancer>
+                {children}
+            </Balancer>
+        </h2>
+    );
+}
+
+// COMPONENT: Text node with wrap balancer
+export function H3({
+    children, className
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <h3 className={" " + className}>
+            <Balancer>
+                {children}
+            </Balancer>
+        </h3>
+    );
+}
+
+// COMPONENT: Text node with wrap balancer
+export function P({
+    children, className
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <p className={" " + className}>
+            <Balancer>
+                {children}
+            </Balancer>
+        </p>
+    );
+}

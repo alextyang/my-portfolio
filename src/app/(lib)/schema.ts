@@ -5,6 +5,7 @@ export type Project = {
     path: string,
     href: string,
     coverImage: string | StaticImageData,
+    splashImage?: string | StaticImageData,
     title: string,
     subtitle: string,
     link?: string,

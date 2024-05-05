@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Project } from "../(lib)/schema";
-import { SiteHeader } from "../siteComponents";
+import Image from "next/image";
 
 
 // COMPONENT: Project title/details for projects without a hero screen
@@ -21,23 +21,42 @@ export function ProjectHeaderInline({ projectInfo }: { projectInfo: Project }) {
 // COMPONENT: Project title/details for projects with a hero screen
 export function ProjectHeaderCentered({ projectInfo }: { projectInfo: Project }) {
     return (
-        <div></div>
+        <div className="flex flex-col items-center w-auto max-w-3xl px-12 pb-6 mb-24 tracking-wide text-center bg-black -mt-32 md:-mt-32 rounded-2xl bg-opacity-60 backdrop-blur-lg xl:scale-125 mx-auto">
+            {/* <svg className="fixed -mt-24 -rotate-90 bottom-12" xmlns="http://www.w3.org/2000/svg" width="2.4rem" height="2.15rem" viewBox="0 -960 960 960"><path fill="currentColor" d="m330-444 201 201-51 51-288-288 288-288 51 51-201 201h438v72H330Z" /></svg> */}
+            <ProjectHeaderTags projectInfo={projectInfo} className="-mt-2" />
+            <ProjectHeaderTitle projectInfo={projectInfo} className="mt-4 !font-semibold !tracking-normal" />
+            <ProjectHeaderSubtitle projectInfo={projectInfo} className="mt-2" />
+            <ProjectHeaderTools projectInfo={projectInfo} className="mt-4" />
+        </div>
     );
 }
 
 
+// COMPONENT: Background image / hero
+export function SplashImage({ projectInfo, className = "" }: { projectInfo: Project, className?: string }) {
+    if (!projectInfo.splashImage)
+        return '';
+
+    return (
+        <div className={" min-h-[33vh] " + className}>
+            <Image alt="" src={projectInfo.splashImage} priority className="absolute top-0 left-0 right-0 -z-50" placeholder="blur" sizes="100vw"></Image>
+            <Image alt="" src={projectInfo.splashImage} className="relative w-full -mb-8 opacity-0" placeholder="blur" ></Image>
+        </div>
+    );
+}
+
 
 // COMPONENT: Name of project
-function ProjectHeaderTitle({ projectInfo, className = "" }: { projectInfo: Project, className?: string }) {
+function ProjectHeaderTitle({ projectInfo, className = "mr-3.5" }: { projectInfo: Project, className?: string }) {
     return (
-        <h1 className={"text-5xl font-medium inline-block mr-3.5 " + className}>{projectInfo.title}</h1>
+        <h1 className={"text-5xl font-medium inline-block  " + className}>{projectInfo.title}</h1>
     );
 }
 
 // COMPONENT: List of disciplinary tags
-function ProjectHeaderTags({ projectInfo, className = "" }: { projectInfo: Project, className?: string }) {
+function ProjectHeaderTags({ projectInfo, className = "mt-2.5" }: { projectInfo: Project, className?: string }) {
     return (projectInfo.tags.length > 0 ? (
-        <div className={"whitespace-nowrap h-min  bg-white opacity-90 relative bottom-0.5 rounded-md inline mt-2.5 px-1.5 " + className}>
+        <div className={"whitespace-nowrap h-min  bg-white opacity-90 relative bottom-0.5 rounded-md inline  px-1.5 " + className}>
             <div className="relative inline top-[1px] text-xl font-semibold tracking-tight text-black">
                 {projectInfo.tags.map((tag, index) => {
 

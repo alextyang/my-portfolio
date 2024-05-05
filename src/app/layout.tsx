@@ -5,6 +5,8 @@ import { SiteFooter, SiteHeader } from "./siteComponents";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Provider from 'react-wrap-balancer'
+
 
 export const metadata: Metadata = {
   title: "Alex Yang — Full-Stack Developer & Creative Technologist",
@@ -22,9 +24,12 @@ export default function RootLayout({
         <Suspense>
           <SiteHeader />
         </Suspense>
+
         {children}
+
         <GoogleAnalytics gaId={"G-16E1NJ9JPL"} />
         <Analytics />
+
         <SiteFooter />
       </body>
     </html>
