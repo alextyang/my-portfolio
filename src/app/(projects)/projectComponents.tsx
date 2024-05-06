@@ -39,10 +39,10 @@ export function CaseImage({ className = "mb-[3.5%]", src, alt, priority = false,
         <div className={"rounded-[1.25vw] overflow-hidden mx-auto relative " + className + (bgSrc ? ' !overflow-visible' : '')} title={alt}>
             {bgSrc ? (
                 <div className="absolute -top-4 -bottom-4 w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10">
-                    <Image src={bgSrc} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" />
+                    <Image src={bgSrc} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" placeholder="blur" />
                 </div>
             ) : ''}
-            <Image src={src} alt={alt} priority={priority} />
+            <Image src={src} alt={alt} priority={priority} placeholder="blur" />
         </div>
     );
 }
@@ -68,7 +68,7 @@ export function CaseBg({ className = "top-0 bottom-0", src, priority = false }: 
     return (
 
         <div className={"absolute w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10 " + className}>
-            <Image src={src} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" />
+            <Image src={src} alt={''} priority={priority} fill={true} placeholder="blur" className=" object-cover" sizes="100vw" />
         </div>
 
     );
