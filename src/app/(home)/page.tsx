@@ -7,6 +7,7 @@ import { projectInfo as SR } from "../(projects)/sunrise/project";
 import { projectInfo as AM } from "../(projects)/animal-worlds/project";
 import { projectInfo as NA } from "../(projects)/name-the-age/project";
 import { projectInfo as RF } from "../(projects)/refashion/project";
+import Balancer from "react-wrap-balancer";
 
 const featuredProjects: Project[] = [AB, SR];
 const otherProjects: Project[] = [AM, RF, NA];
@@ -20,12 +21,14 @@ export default function Home() {
         <p className="w-full text-3xl xs:text-4xl md:text-5xl !leading-tight tracking-wider font-base">
           <span className="opacity-100">Hi!</span>
           <span className="opacity-70"> My name is </span>
-          <span className="opacity-100"> Alexander</span>
+          <span className="opacity-100"> Alex</span>
           <span className="opacity-70"> and I&apos;m a </span>
           <span className="opacity-100"> developer & designer</span>
           <span className="opacity-70"> in </span>
           <span className="opacity-70"> Bed-Stuy, </span>
           <span className="opacity-100"> Brooklyn.</span>
+          <span className="opacity-70"> Currently searching for opportunities to make an impact.</span>
+
         </p>
 
         {/* TODO: Kaleidoscope background? https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope */}
