@@ -1,7 +1,7 @@
 import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
-import cover from "./src/cover.svg";
+import cover from "./csrc/cover.svg";
 
 // DATA: Header & hover-able details
 export const projectInfo: Project = {
@@ -19,7 +19,7 @@ export const projectInfo: Project = {
 };
 
 // MEDIA
-import tech from "./src/techsplain.svg";
+import tech from "./csrc/techsplain.svg";
 const tour_vid = "/" + projectInfo.path + "/tour.mp4";
 const className = '';
 

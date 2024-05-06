@@ -1,7 +1,7 @@
 import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
-import cover from "./src/cover.png";
+import cover from "./csrc/cover.png";
 import { CaseVideoStream } from "../videoUtils";
 
 // DATA: Header & hover-able details
@@ -25,14 +25,14 @@ const logo_vid = "/" + projectInfo.path + "/logo.mp4";
 const title_vid = "/" + projectInfo.path + "/title.mp4";
 
 // MEDIA: Images
-import event1 from "./src/event1.jpg";
-import event2 from "./src/event2.jpg";
-import event3 from "./src/event3.jpg";
-import event4 from "./src/event4.jpg";
-import event5 from "./src/event5.jpg";
+import event1 from "./csrc/event1.jpg";
+import event2 from "./csrc/event2.jpg";
+import event3 from "./csrc/event3.jpg";
+import event4 from "./csrc/event4.jpg";
+import event5 from "./csrc/event5.jpg";
 
-import slide1 from "./src/slide1.png";
-import slide2 from "./src/slide2.png";
+import slide1 from "./csrc/slide1.png";
+import slide2 from "./csrc/slide2.png";
 
 // VAR: Common styles
 const className = '';

@@ -1,7 +1,7 @@
 import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
-import cover from "./src/cover.png";
+import cover from "./csrc/cover.png";
 
 // DATA: Header & hover-able details
 export const projectInfo: Project = {

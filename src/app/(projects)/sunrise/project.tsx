@@ -4,10 +4,9 @@ import Image from "next/image";
 
 
 
-
 // DATA: Header & hover-able details
-import cover from "./src/cover.png";
-import splash from "./src/splash.png";
+import cover from "./csrc/cover.png";
+import splash from "./csrc/splash.png";
 export const projectInfo: Project = {
     path: 'sunrise',
     href: 'sunrise',
@@ -23,39 +22,39 @@ export const projectInfo: Project = {
 };
 
 // MEDIA
-import sunrises from "./src/sunrises.png";
-import morning from "./src/sunrise.png";
+import sunrises from "./csrc/sunrises.png";
+import morning from "./csrc/sunrise.png";
 
-import terms from "./src/terms.png";
+import terms from "./csrc/terms.png";
 
-import profile1 from "./src/profile1.png";
-import profile2 from "./src/profile2.png";
-import profile3 from "./src/profile3.png";
-import profile4 from "./src/profile4.png";
-import competitive from "./src/competitive.png";
+import profile1 from "./csrc/profile1.png";
+import profile2 from "./csrc/profile2.png";
+import profile3 from "./csrc/profile3.png";
+import profile4 from "./csrc/profile4.png";
+import competitive from "./csrc/competitive.png";
 
-import ad from "./src/ad.png";
+import ad from "./csrc/ad.png";
 
-import heuristic from "./src/heuristics.png";
-import alexaComp from "./src/alexa-comp.png";
-import googleComp from "./src/google-comp.png";
-import appleComp from "./src/apple-comp.png";
+import heuristic from "./csrc/heuristics.png";
+import alexaComp from "./csrc/alexa-comp.png";
+import googleComp from "./csrc/google-comp.png";
+import appleComp from "./csrc/apple-comp.png";
 
-import complexFlow from "./src/complex-flow.png";
-import simpleFlow from "./src/simple-flow.png";
-import editFlow from "./src/edit-flow.png";
-import flowBg from "./src/flow-bg.png";
-import flowBgXl from "./src/flow-bg-xl.png";
+import complexFlow from "./csrc/complex-flow.png";
+import simpleFlow from "./csrc/simple-flow.png";
+import editFlow from "./csrc/edit-flow.png";
+import flowBg from "./csrc/flow-bg.png";
+import flowBgXl from "./csrc/flow-bg-xl.png";
 
-import lofi from "./src/lofi.png";
-import lofiAction from "./src/lofi-action.png";
-import lofiLive from "./src/lofi-live.png";
-import lofiSummary from "./src/lofi-summary.png";
-import lofiBg from "./src/lofi-bg.png";
+import lofi from "./csrc/lofi.png";
+import lofiAction from "./csrc/lofi-action.png";
+import lofiLive from "./csrc/lofi-live.png";
+import lofiSummary from "./csrc/lofi-summary.png";
+import lofiBg from "./csrc/lofi-bg.png";
 
-import designSystem from "./src/design-system.png";
-import designSystemMobile from "./src/design-system-mobile.png";
-import designSystemBg from "./src/design-system-bg.png";
+import designSystem from "./csrc/design-system.png";
+import designSystemMobile from "./csrc/design-system-mobile.png";
+import designSystemBg from "./csrc/design-system-bg.png";
 
 const protoVid = "/" + projectInfo.path + "/prototype.mp4";
 const protoAdjust = "/" + projectInfo.path + "/adjust.mp4";

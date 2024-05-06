@@ -1,7 +1,7 @@
 import { Project } from "@/app/(lib)/schema";
 import { CaseImage, CaseSplit, CaseVideo } from "../projectComponents";
 
-import cover from "./src/cover.png";
+import cover from "./csrc/cover.png";
 import { SyncedVideos } from "../videoUtils";
 
 // DATA: Header & hover-able details
@@ -20,13 +20,13 @@ export const projectInfo: Project = {
 
 
 // MEDIA: Images
-import ae from "./src/ae.png";
-import cite from "./src/citations.jpeg";
-import floor from "./src/floor.jpeg";
-import mindMap from "./src/mind-map.png";
-import patchWhale from "./src/patch-whale.png";
-import patchMain from "./src/patch-main.png";
-import setup from "./src/setup.jpeg";
+import ae from "./csrc/ae.png";
+import cite from "./csrc/citations.jpeg";
+import floor from "./csrc/floor.jpeg";
+import mindMap from "./csrc/mind-map.png";
+import patchWhale from "./csrc/patch-whale.png";
+import patchMain from "./csrc/patch-main.png";
+import setup from "./csrc/setup.jpeg";
 
 // MEDIA: Videos
 const main_vid = "https://www.youtube.com/watch?v=5f5ZJpSIDpM";
