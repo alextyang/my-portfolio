@@ -6,6 +6,7 @@ export type Project = {
     href: string,
     coverImage: string | StaticImageData,
     splashImage?: string | StaticImageData,
+    isSplashImageLight?: boolean,
     title: string,
     subtitle: string,
     link?: string,
@@ -13,5 +14,6 @@ export type Project = {
     tools: string[],
     languages: string[],
     resources: string[],
+    integrations?: string[],
     icons: string[],
 };

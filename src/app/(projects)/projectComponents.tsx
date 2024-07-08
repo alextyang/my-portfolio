@@ -6,6 +6,8 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { ProjectHeaderCentered, ProjectHeaderInline, SplashImage } from "./projectHeader";
 import { projectOrder } from "../(lib)/links";
 import Balancer, { Provider } from 'react-wrap-balancer'
+import { ErrorBoundary, ErrorComponent } from "next/dist/client/components/error-boundary";
+import Error from "../error";
 
 
 // COMPONENT: Template page generated based on projectInfo
@@ -36,14 +38,16 @@ export function ProjectPage({ projectInfo, CaseStudy: ProjectStory, maxWidth = "
 // COMPONENT: Rounded image for use in project body
 export function CaseImage({ className = "mb-[3.5%]", src, alt, priority = false, bgSrc }: { className?: string, src: string | StaticImport, alt: string, priority?: boolean, bgSrc?: string | StaticImport }) {
     return (
-        <div className={"rounded-[1.25vw] overflow-hidden mx-auto relative " + className + (bgSrc ? ' !overflow-visible' : '')} title={alt}>
-            {bgSrc ? (
-                <div className="absolute -top-4 -bottom-4 w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10">
-                    <Image src={bgSrc} alt={''} priority={priority} fill={true} className=" object-cover" sizes="100vw" placeholder="blur" />
-                </div>
-            ) : ''}
-            <Image src={src} alt={alt} priority={priority} placeholder="blur" />
-        </div>
+        <ErrorBoundary errorComponent={Error}>
+            <div className={"rounded-[1.25vw] mb-[3.5%] overflow-hidden mx-auto relative " + className + (bgSrc ? ' !overflow-visible' : '')} title={alt}>
+                {bgSrc ? (
+                    <div className="absolute -top-4 -bottom-4 w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10">
+                        <Image src={bgSrc} alt={''} priority={priority} fill={true} className="object-cover " sizes="100vw" placeholder='blur' />
+                    </div>
+                ) : ''}
+                <Image src={src} alt={alt} priority={priority} placeholder="blur" />
+            </div>
+        </ErrorBoundary>
     );
 }
 
@@ -53,7 +57,7 @@ export function CasePrototype({ className = "", src, alt, title, subtitle, child
 
         <div className={" flex flex-col w-auto items-center gap-12 mx-auto " + className}>
             <CaseVideo className=" w-[50vw] max-w-72 mx-auto " src={src as string} ></CaseVideo>
-            <div className="w-full flex flex-col -mt-9 ">
+            <div className="flex flex-col w-full -mt-9 ">
                 <H1 className="-mb-2 !font-semibold !tracking-normal">{title}</H1>
                 {children}
             </div>
@@ -68,17 +72,17 @@ export function CaseBg({ className = "top-0 bottom-0", src, priority = false }: 
     return (
 
         <div className={"absolute w-[100vw] left-1/2 right-1/2 -mr-[50vw] -ml-[50vw] -z-10 " + className}>
-            <Image src={src} alt={''} priority={priority} fill={true} placeholder="blur" className=" object-cover" sizes="100vw" />
+            <Image src={src} alt={''} priority={priority} fill={true} placeholder="blur" className="object-cover " sizes="100vw" />
         </div>
 
     );
 }
 
 // COMPONENT: Internal video embed for use in project body
-export function CaseVideo({ className = "mb-[3.5%]", src, videoClassName }: { className?: string, src: string, videoClassName?: string }) {
+export function CaseVideo({ className = "mb-[3.5%]", src, videoClassName, loop = true, autoPlay = true }: { className?: string, src: string, videoClassName?: string, loop?: boolean, autoPlay?: boolean }) {
     return (
-        <div className={"rounded-[1.25vw] overflow-hidden " + className}>
-            <video autoPlay loop disablePictureInPicture playsInline muted preload={'auto'} poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
+        <div className={"mb-[3.5%] rounded-[1.25vw] overflow-hidden " + className}>
+            <video autoPlay={autoPlay} loop={loop} disablePictureInPicture playsInline controls={!autoPlay} muted preload={autoPlay ? 'auto' : 'none'} poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
             </video>
@@ -89,7 +93,7 @@ export function CaseVideo({ className = "mb-[3.5%]", src, videoClassName }: { cl
 // COMPONENT: Internal video embed for use in project body
 export function CaseVideoOptional({ className = "mb-[3.5%]", src, videoClassName }: { className?: string, src: string, videoClassName?: string, preload?: string }) {
     return (
-        <div className={"rounded-[1.25vw] overflow-hidden " + className}>
+        <div className={"mb-[3.5%] rounded-[1.25vw] overflow-hidden " + className}>
             <video loop controls preload={'none'} poster={src.substring(0, src.length - '.mp4'.length) + ".png"} className={videoClassName} >
                 <source src={src} type="video/mp4" />
                 {/* <Image src={src.substring(0, src.length - 3) + 'png'} fill alt="" /> */}
@@ -151,14 +155,12 @@ export function CaseTool({
     className?: string;
 }) {
     return (
-        <div className={"rounded-[12px] border-[3px] border-white text-white px-7 pt-7 pb-3.5 " + className}>
-            <div className="relative aspect-square mx-auto h-24">
-                <Image src={'/logos/' + logoName + ".png"} alt={logoName + " Logo"} width={250} height={250} />
+        <div className={"rounded-[12px] border-[3px] border-white text-white px-5 lg:px-7 pt-7 pb-3.5 flex flex-col items-center  " + className}>
+            <div className="relative w-24 h-24 aspect-square ">
+                <Image src={'/logos/' + logoName + ".png"} alt={logoName + " Logo"} fill sizes="33vw" className="object-contain " />
             </div>
-            <p><b>{logoName}</b></p>
-            <div className="-mx-1.5">
-                <p className="!mt-0 inline-block !text-sm">{desc}</p>
-            </div>
+            <p className="!w-auto !mx-0"><b>{logoName.replaceAll('-', ' ')}</b></p>
+            <p className="!w-auto !mx-0 !my-1.5 !text-sm"><span>{desc}</span></p>
         </div>
     );
 }
@@ -171,7 +173,7 @@ export function CaseTools({
     className?: string;
 }) {
     return (
-        <div className={"flex flex-col lg:flex-row gap-12 w-auto mx-auto " + className}>
+        <div className={"grid grid-cols-2 gap-6 md:grid md:grid-cols-3 lg:flex lg:flex-row lg:flex-wrap w-full justify-center " + className}>
             {children}
         </div>
     );

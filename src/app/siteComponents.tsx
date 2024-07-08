@@ -3,7 +3,7 @@
 import Link from "next/dist/client/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Project } from "./(lib)/schema";
-import { projectOrder } from "./(lib)/links";
+import { projectOrder, projectRefs } from "./(lib)/links";
 import { useEffect, useState } from "react";
 import { LINKS } from "./(lib)/links";
 
@@ -33,7 +33,7 @@ export function SiteHeader({ }: {}) {
 
 
     return (
-        <div className="px-[5vw] pt-10 w-full font-nhgd tracking-wide">
+        <div className={"mx-[2vw] px-[3vw] mt-5 pt-4 pb-2.5 w-auto font-nhgd tracking-wide " + (projectRefs[projectIndex] && projectRefs[projectIndex].isSplashImageLight ? 'bg-black bg-opacity-60 backdrop-blur-lg rounded-2xl' : '')}>
             <div className="flex flex-row w-full tracking-wide font-nhgd">
                 <div className="flex flex-col sm:flex-row gap-y-0.5">
                     <Link href={'/'} className=" mr-3.5 text-2xl font-medium ">Alex Yang</Link>
@@ -50,7 +50,7 @@ export function SiteHeader({ }: {}) {
 function SiteMenu({ projectIndex, isOpen, className }: { projectIndex: number, isOpen: boolean, className?: string }) {
 
     return (
-        <div className={"flex flex-row flex-wrap justify-right items-center transition-all tracking-wide text-2xl font-medium gap-8 h-8 mt-2 opacity-100 w-full " + (isOpen ? '' : ' !h-0 !opacity-0 !mt-0 pointer-events-none ') + className}>
+        <div className={"flex flex-row flex-wrap justify-right items-center transition-all tracking-wide text-2xl font-medium gap-8 h-8 mb-2 mt-2 opacity-100 w-full " + (isOpen ? '' : ' !h-0 !opacity-0 !mt-0 !mb-0 pointer-events-none ') + className}>
             <NavLink href={'/'}>Work</NavLink>
             <NavLink href={'/resume'}>Resume</NavLink>
             <EmailCopyButton className="hidden h-8 ml-2 opacity-60 md:flex" />

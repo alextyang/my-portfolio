@@ -21,12 +21,12 @@ export function ProjectHeaderInline({ projectInfo }: { projectInfo: Project }) {
 // COMPONENT: Project title/details for projects with a hero screen
 export function ProjectHeaderCentered({ projectInfo }: { projectInfo: Project }) {
     return (
-        <div className="flex flex-col items-center w-auto max-w-3xl px-12 pb-6 mb-24 tracking-wide text-center bg-black -mt-32 md:-mt-32 rounded-2xl bg-opacity-60 backdrop-blur-lg xl:scale-125 mx-auto">
+        <div className="flex flex-col items-center w-auto max-w-3xl px-12 pb-6 mx-auto mb-24 -mt-32 tracking-wide text-center bg-black md:-mt-32 rounded-2xl bg-opacity-60 backdrop-blur-lg xl:scale-125 ">
             {/* <svg className="fixed -mt-24 -rotate-90 bottom-12" xmlns="http://www.w3.org/2000/svg" width="2.4rem" height="2.15rem" viewBox="0 -960 960 960"><path fill="currentColor" d="m330-444 201 201-51 51-288-288 288-288 51 51-201 201h438v72H330Z" /></svg> */}
             <ProjectHeaderTags projectInfo={projectInfo} className="-mt-2" />
             <ProjectHeaderTitle projectInfo={projectInfo} className="mt-4 !font-semibold !tracking-normal" />
             <ProjectHeaderSubtitle projectInfo={projectInfo} className="mt-2" />
-            <ProjectHeaderTools projectInfo={projectInfo} className="mt-4" />
+            <ProjectHeaderTools projectInfo={projectInfo} className="justify-center mt-4 " />
         </div>
     );
 }
@@ -96,8 +96,13 @@ const toolIcons = {
     resources: {
         path: "M300-80q-58 0-99-41t-41-99v-520q0-58 41-99t99-41h500v600q-25 0-42.5 17.5T740-220q0 25 17.5 42.5T800-160v80H300Zm20-280h80v-440h-80v440Zm-20 200h373q-6-14-9.5-28.5T660-220q0-16 3-31t10-29H300q-26 0-43 17.5T240-220q0 26 17 43t43 17Z",
         className: "relative inline w-6 h-6 top-[1px] fill-white"
+    },
+    integrations: {
+        path: "M480-392.35 392.35-480 480-567.65 567.65-480 480-392.35Zm-85-248.63L289.98-746 480-936.02 670.02-746 565-640.98l-85-85-85 85Zm-181 351L23.98-480 214-670.02 319.02-565l-85 85 85 85L214-289.98Zm532 0L640.98-395l85-85-85-85L746-670.02 936.02-480 746-289.98Zm-266 266L289.98-214 395-319.02l85 85 85-85L670.02-214 480-23.98Z",
+        className: "relative inline w-7 h-7 top-[1.5px] fill-white"
     }
 };
+
 
 // COMPONENT: List of tools used
 function ProjectHeaderTools({ projectInfo, className = "" }: { projectInfo: Project, className?: string }) {
@@ -106,13 +111,15 @@ function ProjectHeaderTools({ projectInfo, className = "" }: { projectInfo: Proj
             <ProjectHeaderToolCategory tools={projectInfo.tools} icon={toolIcons.tools} />
             <ProjectHeaderToolCategory tools={projectInfo.languages} icon={toolIcons.languages} />
             <ProjectHeaderToolCategory tools={projectInfo.resources} icon={toolIcons.resources} />
+            <ProjectHeaderToolCategory tools={projectInfo.integrations} icon={toolIcons.integrations} />
 
         </div>
     );
 }
 
 // COMPONENT: Generates tool item with icon, based on 'toolIcons' mapping
-function ProjectHeaderToolCategory({ tools, icon, className = "" }: { tools: string[], icon: { path: string, className: string }, className?: string }) {
+function ProjectHeaderToolCategory({ tools, icon, className = "" }: { tools?: string[], icon: { path: string, className: string }, className?: string }) {
+    if (!tools) return;
     return (
         tools.length > 0 ? (
             <div className={"inline whitespace-nowrap " + className}>

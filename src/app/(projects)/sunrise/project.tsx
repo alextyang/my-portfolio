@@ -76,7 +76,6 @@ export function ProjectStory() {
             {/* <H1>Web-builder preset examples</H1> */}
             <div className="center !-mt-6">
                 <H3>The smart home market has growing pains. </H3>
-
                 <P>
                     Despite the thousands of home-control apps on the Apple and Google Play stores, each one is practically identical.
                     <br /> <br />
