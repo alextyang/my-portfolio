@@ -46,7 +46,7 @@ export function ProjectStory() {
     return (
         <div className="story">
             <div className="center !-mt-6">
-                <H3>Music is the predominant way we experience poetry, new art, and international voices.</H3>
+                <H3>Music is a predominant way we experience artistry, poetry, and international voices.</H3>
                 <H3>The tools we use to interact with music, however, rarely account for the cultural and contextual richness of each song.</H3>
             </div>
             <CaseImage className="mt-16 mb-0 scale-110 max-w-7xl" src={spotify} alt="" />

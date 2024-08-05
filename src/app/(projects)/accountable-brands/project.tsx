@@ -50,6 +50,7 @@ export function ProjectStory() {
 
             <div className="center !-mt-6">
                 <H3>Headlines aren&apos;t enough. </H3>
+                <H3>Businesses do not face long-term consequences.</H3>
             </div>
 
             <div className="flex flex-row gap-4 mt-12 -mx-36">
@@ -59,9 +60,6 @@ export function ProjectStory() {
                 <CaseImage className="max-w-4xl  mb-0" src={headline4} alt='Amnesty International: Shell complicit in activist executions.'></CaseImage>
             </div>
 
-            <div className="center mt-0">
-                <H3>Businesses do not face long-term consequences.</H3>
-            </div>
             <div className="center mt-16">
                 <P>
                     Attention spans fade, the news cycle churns, and PR firms expertly craft a superficial conclusion: leaving no meaningful change in the wake.
