@@ -67,6 +67,8 @@ import icon2B from "./csrc/icon-2b.png";
 import icon3A from "./csrc/icon-3a.png";
 import icon3B from "./csrc/icon-3b.png";
 
+import iconEditor from "./csrc/icon-editor.png";
+
 // COMPONENT: Body content / project story
 export function ProjectStory() {
     return (
@@ -216,41 +218,80 @@ export function ProjectStory() {
                     <br />
                     <br />
                 </P>
+
                 < H1>Search by brand</ H1>
+                <P>
+                    ElasticSearch indexes brand names, products, industries, and headlines. The search bar is the primary method of navigation, facilitating brand-based browsing.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={search_vid}></CaseVideo>
+
                 < H1>Open-source brand pages</ H1>
+                <P>
+                    Rich formatted metadata, visuals, and a freeform summary contextualize each brand.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={brand_vid}></CaseVideo>
 
                 < H1>Open-source report pages</ H1>
+                <P>
+                    Linked to a brand, reports are the primary content of the platform. They are structured to be easily digestible articles that refer users to further reading.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={report_vid}></CaseVideo>
 
-                < H1>Public editing/creation (mirror)</ H1>
+                < H1>Public editing/creation</ H1>
+                <H1 className="!mt-0 !text-3xl opacity-50">( Mirrored )</H1>
+                <P>
+                    For now, editing happens on the native MediaWiki interface, which comes with many built-in tools and security measures.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={edit_vid}></CaseVideo>
 
-                < H1>Citation generation and mirroring</ H1>
+                < H1>Citation generation</ H1>
+                <H1 className="!mt-0 !text-3xl opacity-50">( Mirrored )</H1>
+                <P>
+                    One of these tools is an integrated citation management tool that can query the internet and academic databases.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={cite_vid}></CaseVideo>
 
                 < H1>Mandatory peer-review</ H1>
+                <H1 className="!mt-0 !text-3xl opacity-50">( Mirrored )</H1>
+                <P>
+                    Before edits appear on the public wiki page and the main site, they must be reviewed and approved by a long-time user.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={review_vid}></CaseVideo>
 
-                < H1>Page-specific discussions (mirror)</ H1>
+                < H1>Page-specific discussions</ H1>
+                <H1 className="!mt-0 !text-3xl opacity-50">( Mirrored )</H1>
+                <P>
+                    Before edits appear on the public wiki page and the main site, they must be reviewed and approved by a long-time user.
+                </P>
                 <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={discussion_vid}></CaseVideo>
 
                 < H1>Wikipedia excerpting</ H1>
-                <br />
-                <CaseImage className="mt-0 max-w-xl" src={wiki} alt=""></CaseImage>
+                <P>
+                    To speed up content creation, especially for brand pages, I integrated an inline system that can excerpt Wikipedia pages and their sources in real-time.
+                    <br />
+                    <br />
+                    I expect this to be a permanent feature because timely, reliable, Creative Commons data is a cornerstone of the platform.
+                </P>
+                <CaseImage className="mt-8 max-w-xl" src={wiki} alt=""></CaseImage>
                 <CaseImage className="mt-0 max-w-3xl" src={wikiRefs} alt=""></CaseImage>
 
                 < H1>Dynamically-generated icons</ H1>
+                <P>
+                    In pursuit of a visually dynamic, engaging interface I created an automatic icon system that finds material icons to represent a company&apos;s offerings.
+                </P>
+                <CaseImage className="max-w-4xl mb-0 mt-8" src={icon1A} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0 mt-4" src={icon1B} alt=''></CaseImage>
                 <br />
-                <CaseImage className="max-w-4xl mb-0" src={icon1B} alt=''></CaseImage>
-                <CaseImage className="max-w-3xl mb-0" src={icon1A} alt=''></CaseImage>
+                <CaseImage className="max-w-4xl mb-0" src={icon2A} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0 mt-4" src={icon2B} alt=''></CaseImage>
                 <br />
-                <CaseImage className="max-w-4xl mb-0" src={icon2B} alt=''></CaseImage>
-                <CaseImage className="max-w-3xl mb-0" src={icon2A} alt=''></CaseImage>
-                <br />
-                <CaseImage className="max-w-4xl mb-0" src={icon3B} alt=''></CaseImage>
-                <CaseImage className="max-w-3xl mb-0" src={icon3A} alt=''></CaseImage>
+                <CaseImage className="max-w-4xl mb-0" src={icon3A} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0 mt-4" src={icon3B} alt=''></CaseImage>
+                <P>
+                    I also built a robust control panel for administrators to review, ignore, and reassign icon requests.
+                </P>
+                <CaseImage className="max-w-3xl mb-0 mt-8" src={iconEditor} alt=''></CaseImage>
+
             </div>
 
             {/* <CaseVideo className="mt-16" src={tour_vid} /> */}
@@ -259,9 +300,13 @@ export function ProjectStory() {
                 <H1>
                     Tools Used
                 </H1>
+                <P>
+                    This was the largest project I&apos;ve ever completed. Learning both front and backend development all at once was challenging and rewarding. While I have worked my way up most of the learning curves, there is still plenty to rework and optimize.
+                </P>
+                <br />
             </div>
 
-            <CaseTools className="mt-6">
+            <CaseTools className="mt-0">
                 <CaseTool logoName="Figma" desc={"Designing the brand identity and HiFI prototypes."} />
                 <CaseTool logoName="Illustrator" desc={"Creating custom material-style icons."} />
                 <CaseTool logoName="Git" desc={"Version control of both submodules of the project."} />
