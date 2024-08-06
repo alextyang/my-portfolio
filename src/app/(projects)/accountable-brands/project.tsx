@@ -23,6 +23,13 @@ export const projectInfo: Project = {
 
 // MEDIA
 const tour_vid = "/" + projectInfo.path + "/tour.mp4";
+const brand_vid = "/" + projectInfo.path + "/brand.mp4";
+const report_vid = "/" + projectInfo.path + "/report.mp4";
+const cite_vid = "/" + projectInfo.path + "/cite.mp4";
+const edit_vid = "/" + projectInfo.path + "/edit.mp4";
+const search_vid = "/" + projectInfo.path + "/search.mp4";
+const discussion_vid = "/" + projectInfo.path + "/discussion.mp4";
+const review_vid = "/" + projectInfo.path + "/review.mp4";
 const className = '';
 
 import headline1 from "./csrc/Headline-1.png";
@@ -32,6 +39,13 @@ import headline4 from "./csrc/Headline-4.png";
 
 import flowBefore from "./csrc/flow-before.png";
 import flowAfter from "./csrc/flow-after.png";
+
+import oldBrand from "./csrc/old-ab-brand.png";
+import oldCampaign from "./csrc/old-ab-campaign.png";
+import oldEdit1 from "./csrc/old-ab-edit1.png";
+import oldEdit2 from "./csrc/old-ab-edit2.png";
+import oldHome from "./csrc/old-ab-home.png";
+import oldSearch from "./csrc/old-ab-search.png";
 
 import activism from "./csrc/activism.png";
 import branding from "./csrc/branding.png";
@@ -43,14 +57,26 @@ import social1 from "./csrc/social-ACT.png";
 import social2 from "./csrc/social-PLP.png";
 import social3 from "./csrc/social-HRA.png";
 
+import wiki from "./csrc/wiki.png";
+import wikiRefs from "./csrc/wiki-refs.png";
+
+import icon1A from "./csrc/icon-1a.png";
+import icon1B from "./csrc/icon-1b.png";
+import icon2A from "./csrc/icon-2a.png";
+import icon2B from "./csrc/icon-2b.png";
+import icon3A from "./csrc/icon-3a.png";
+import icon3B from "./csrc/icon-3b.png";
+
 // COMPONENT: Body content / project story
 export function ProjectStory() {
     return (
         <div className="story">
 
             <div className="center !-mt-6">
-                <H3>Headlines aren&apos;t enough. </H3>
-                <H3>Businesses do not face long-term consequences.</H3>
+                <H3>Headlines aren&apos;t enough.
+                    <br />
+                    Businesses do not face long-term consequences.
+                </H3>
             </div>
 
             <div className="flex flex-row gap-4 mt-12 -mx-36">
@@ -60,50 +86,52 @@ export function ProjectStory() {
                 <CaseImage className="max-w-4xl  mb-0" src={headline4} alt='Amnesty International: Shell complicit in activist executions.'></CaseImage>
             </div>
 
-            <div className="center mt-16">
+            <div className="center mt-0">
                 <P>
-                    Attention spans fade, the news cycle churns, and PR firms expertly craft a superficial conclusion: leaving no meaningful change in the wake.
+                    Attention spans fade, the news cycle churns, and PR firms expertly craft superficial conclusions: majority of the time, no meaningful change is left in the wake of an exposé.
                     <br />
                     <br />
-                    By design, current channels of information encourage shallow, short-term responses, not true accountability. The internet quickly buries backlash behind new narratives and clever marketing.
+                    Our channels of information encourage shallow, short-term responses, not accountability. Backlash is quickly buried. Intentionally or unintentionally, this is by design.
                     <br />
                     <br />
-                    <br />
-                    How do we craft an alternative?
                 </P>
+                <H3>How do we craft an alternative?
+                </H3>
             </div>
 
             <CaseImage className="max-w-5xl mb-0 mt-16" src={activism} alt=""></CaseImage>
 
 
-            <div className="center mt-6">
+            <div className="center mt-0">
                 <P>
-                    The passion and comprehensiveness of 2020 online activism was outstanding. Notably, there was no central authority or organization behind the flood of educational content, making it a powerful testament to many&apos;s desire to learn, share, and do the right thing.
+                    The passion and comprehensiveness of online activism in 2020 was outstanding. Without a central authority behind the flood of educational content, it us a powerful testament to many&apos;s desire to learn, share, and do the right thing.
                     <br />
                     <br />
-                    While not a departure from the short-term format, it made clear that a community response to a crisis has the potential to create high-quality, enduring resources.
+                    While not a perfect movement, it made clear that community responses to crisis have the potential to create high-quality, enduring digital resources.
                 </P>
             </div>
             <div className="center mt-8">
                 <H1>The Idea.</H1>
                 <P>
 
-                    Inspired by the decentralized nature of this educational activism, <b>I propose a permanent record for corporate misconduct.</b>
+                    Inspired by the decentralized nature of online educational activism, I propose a permanent record for corporate misconduct.
                 </P>
             </div>
 
             <CaseImage className="max-w-5xl mb-0 mt-8" src={flowBefore} alt=""></CaseImage>
             <div className="center mt-0">
                 <P>
-                    We need a space to aggregate and document misbehavior. A community-powered living archive to promote long-term culpability, facilitate transparency, and monitor change.
+                    A community-powered living archive that aggregates documentation of misbehavior to promote long-term culpability, facilitate transparency, and monitor systemic change.
                 </P>
             </div>
             <CaseImage className="max-w-5xl mb-0 mt-12" src={flowAfter} alt=""></CaseImage>
 
             <div className="center mt-16">
                 <H1>An architecture for change.</H1>
+                <H1 className="!mt-0 !text-3xl opacity-50">Frontend + Backend Design</H1>
+
                 <P>
-                    Visually, I drew from the visual language of social media activism, fact sheets / nutrition facts, and NGOs to create a sharp, concise, engaging visual identity.
+                    I drew from the visual language of social media activism, fact sheets / nutrition facts, and NGOs to create a urgent, adaptable, and concise visual language.
                     <br />
                     <br />
                     Structurally, there are two main components:
@@ -112,13 +140,13 @@ export function ProjectStory() {
                     <br />
                     <br />
                     <br />
-                    This raises the question of scope. What counts as misconduct? What scale of misbehavior is relevant? What about words without action?
+                    This raised the question of scope. What counts as misconduct? What scale of misbehavior is relevant? What about words without action?
                     <br />
                     <br />
                     I surveyed headlines and activist resources to try to find the common qualities of misconduct and found three themes: <b>human rights abuse, political abuse, and anti-consumer practices</b>. I liked these themes because they are emotionally resonant and issue-encompassing by consequence.
                     <br />
                     <br />
-                    <span className="opacity-60">Example: Oil company lies about climate change. Instead of taking a political stance, the category system emphasizes the measurable consequences of this action: misinformed consumers.</span>
+                    <span className="opacity-60">Example: Oil company lies about climate change. Instead of arguing a political stance, this category system would emphasize the measurable consequences of this action: misinformed consumers.</span>
                     <br />
                     <br />
                     This structure intentionally excludes: individual people, controversial statements / marketing, and all &apos;socially-conscious&apos; PR strategies (e.g. donations, pledges, mission statements).
@@ -126,11 +154,38 @@ export function ProjectStory() {
             </div>
 
 
-            <CaseImage className="max-w-5xl mb-0 mt-24" src={branding} alt=""></CaseImage>
+            <div className="center mt-24">
+                <P className="opacity-60">
+                    Initial mockups of web pages and structure.
+                    <br />
+                    (Feedback: needs hierarchy, call to action, and )
+                </P>
+            </div>
+            <div className=" grid grid-cols-2 items-start gap-6 mt-6 opacity-90">
+                <div className="flex flex-col gap-6">
+                    <CaseImage className="max-w-3xl !mb-0 " src={oldBrand} alt=''></CaseImage>
+                    <CaseImage className="max-w-3xl !mb-0" src={oldHome} alt=''></CaseImage>
+                </div>
+                <div className="flex flex-col gap-6">
+                    <CaseImage className="max-w-3xl   !mb-0" src={oldEdit1} alt=''></CaseImage>
+                    <CaseImage className="max-w-3xl   !mb-0" src={oldCampaign} alt=''></CaseImage>
+
+                </div>
+
+                {/* <CaseImage className="max-w-3xl   mb-0" src={oldSearch} alt=''></CaseImage> */}
+                {/* <CaseImage className="max-w-3xl   mb-0" src={oldEdit2} alt=''></CaseImage> */}
+            </div>
+
+            <div className="center mt-24">
+                <P className="opacity-60">
+                    Current (working) brand identity and visual language.
+                </P>
+            </div>
+            <CaseImage className="max-w-5xl mb-0 mt-8" src={branding} alt=""></CaseImage>
 
             <div className="center -mt-6">
                 <P className="opacity-60">
-                    Example: Visual identity adapted for social media presence.
+                    Example: Adaptable for social media presence.
                 </P>
             </div>
 
@@ -153,29 +208,52 @@ export function ProjectStory() {
             <CaseImage className="max-w-7xl mb-0 mt-4" src={architecture} alt=""></CaseImage>
 
             <div className="center mt-6">
-                <H1>The current product.</H1>
+                <H1>The current state.</H1>
                 <P>
-                    I&apos;ve built a complete MVP of Accountable Brands: a full-stack web application with the complete, working architecture as mapped above, published between Google Cloud Run and a Digital Ocean VM.
+                    I completed a prototype of Accountable Brands:
+                    <br />
+                    the full-stack web application with architecture as mapped above, hosted through Google Cloud Run and a Digital Ocean VM.
                     <br />
                     <br />
                 </P>
-                <H3>
-                    Current features:
-                </H3>
-                <P>
-                    <li>Open-source brand pages</li>
-                    <li>Open-source report pages</li>
-                    <li>Search-by-brand</li>
-                    <li>Public editing/creation (through mirror)</li>
-                    <li>Mandatory peer-review</li>
-                    <li>Citation generation and mirroring</li>
-                    <li>Page-specific discussions (through mirror)</li>
-                    <li>Wikipedia excerpting</li>
-                    <li>Dynamically-generated icons</li>
-                </P>
+                < H1>Search by brand</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={search_vid}></CaseVideo>
+                < H1>Open-source brand pages</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={brand_vid}></CaseVideo>
+
+                < H1>Open-source report pages</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={report_vid}></CaseVideo>
+
+                < H1>Public editing/creation (mirror)</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={edit_vid}></CaseVideo>
+
+                < H1>Citation generation and mirroring</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={cite_vid}></CaseVideo>
+
+                < H1>Mandatory peer-review</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={review_vid}></CaseVideo>
+
+                < H1>Page-specific discussions (mirror)</ H1>
+                <CaseVideo className="mt-8 !rounded-[10px] max-w-3xl" src={discussion_vid}></CaseVideo>
+
+                < H1>Wikipedia excerpting</ H1>
+                <br />
+                <CaseImage className="mt-0 max-w-xl" src={wiki} alt=""></CaseImage>
+                <CaseImage className="mt-0 max-w-3xl" src={wikiRefs} alt=""></CaseImage>
+
+                < H1>Dynamically-generated icons</ H1>
+                <br />
+                <CaseImage className="max-w-4xl mb-0" src={icon1B} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0" src={icon1A} alt=''></CaseImage>
+                <br />
+                <CaseImage className="max-w-4xl mb-0" src={icon2B} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0" src={icon2A} alt=''></CaseImage>
+                <br />
+                <CaseImage className="max-w-4xl mb-0" src={icon3B} alt=''></CaseImage>
+                <CaseImage className="max-w-3xl mb-0" src={icon3A} alt=''></CaseImage>
             </div>
 
-            <CaseVideoOptional className="mt-16" src={tour_vid} />
+            {/* <CaseVideo className="mt-16" src={tour_vid} /> */}
 
             <div className="center mt-32">
                 <H1>
@@ -241,7 +319,7 @@ export function ProjectStory() {
                     </li>
                     <br />
                     <br />
-                    I put this project on pause to search for a job, but I can&apos;t wait to continue fleshing out the platform as soon as I can support it. Thanks for reading!
+                    I put this project on pause to search for a job, but I can&apos;t wait to continue prepping the brand for release as soon as I can support it. Thanks for reading!
                 </P>
             </div>
             <ActionButton href="https://github.com/alextyang/Accountable-Brands" className="w-56 mx-auto mt-16 mb-8">
